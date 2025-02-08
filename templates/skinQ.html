@@ -34,76 +34,41 @@
                 <!-- 年齢 -->
                  <div class="form-group age-group">
                     <p>あなたの年齢を教えてください</p>
-                    <input type="number" id="age" name="age" placeholder="年齢" required>
+                    <div class="custom-dropdown">
+                        <button type="button" class="dropdown-btn">年齢を選択</button>
+                        <ul class="dropdown-list"></ul> <!-- Javascriptで指示 -->
+                        <input type="hidden" id="age" name="age">
+                    </div>
                 </div>
-                
+                    
                 <!-- 性別 -->
                  <div class="form-group gender-group">
                     <p>あなたの性別を教えてください</p>
-                    <div class="gender-selection">
-                        <label for="male" class="gender-option">
-                            <input type="radio" id="male" name="gender" value="男性" required>男性
-                        </label>
-                        <label for="female" class="gender-option">
-                            <input type="radio" id="female" name="gender" value="女性">女性
-                        </label>
-                        <label for="no_answer" class="gender-option">
-                            <input type="radio" id="no_answer" name="gender" value="回答しない">回答しない
-                        </label>
+                    <div class="gender-container">
+                        <button type="button" class="option-btn gender-btn" data-value="男性">男性</button>
+                        <button type="button" class="option-btn gender-btn" data-value="女性">女性</button>
+                        <button type="button" class="option-btn gender-btn" data-value="回答しない">回答しない</button>
                     </div>
-                </div>
-                
+                    <input type="hidden" id="gender" name="gender">
+                 </div>
+
                 <!-- 肌の状態 -->
                  <div class="form-group skin-group">
-                    <p>気になっている肌状態を教えてください。(複数回答可)</p>
-                    
-                    <ul>
-                        <li>
-                            <input type="checkbox" id="dry_skin" name="skin_issues" value="乾燥">
-                            <label for="dry_skin">乾燥</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="skin_eruption" name="skin_issues" value="肌荒れ">
-                            <label for="skin_eruption">肌荒れ</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="acne" name="skin_issues" value="ニキビ">
-                            <label for="acne">ニキビ</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="lack_transparency" name="skin_issues" value="透明感のなさ">
-                            <label for="lack_transparency">透明感のなさ</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="pore" name="skin_issues" value="毛穴の目立ち">
-                            <label for="pore">毛穴の目立ち</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="shine" name="skin_issues" value="テカリ">
-                            <label for="shine">テカリ</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="spots" name="skin_issues" value="シミ・ソバカス">
-                            <label for="spots">シミ・ソバカス</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="dark_circles" name="skin_issues" value="くま">
-                            <label for="dark_circles">くま</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="wrinkles" name="skin_issues" value="シワ">
-                            <label for="wrinkles">シワ</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="sagging" name="skin_issues" value="たるみ">
-                            <label for="sagging">たるみ</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="no_issues" name="skin_issues" value="なし">
-                            <label for="no_issues">なし</label>
-                        </li>
-                    </ul>
+                    <p>気になっている肌状態を教えてください。(2つまで選択可)</p>
+                    <div class="skin-container">
+                        <button type="button" class="option-btn skin-btn" data-value="乾燥">乾燥</button>
+                        <button type="button" class="option-btn skin-btn" data-value="肌荒れ">肌荒れ</button>
+                        <button type="button" class="option-btn skin-btn" data-value="ニキビ">ニキビ</button>
+                        <button type="button" class="option-btn skin-btn" data-value="透明感のなさ">透明感のなさ</button>
+                        <button type="button" class="option-btn skin-btn" data-value="テカリ">テカリ</button>
+                        <button type="button" class="option-btn skin-btn" data-value="シミ・ソバカス">シミ・ソバカス</button>
+                        <button type="button" class="option-btn skin-btn" data-value="くま">くま</button>
+                        <button type="button" class="option-btn skin-btn" data-value="シワ">シワ</button>
+                        <button type="button" class="option-btn skin-btn" data-value="なし">特段悩みはない</button>
+                    </div>
+                    <input type="hidden" id="skinIssues" name="skin_issues">
                 </div>
+                
                 
                 <div class="form-group">
                     <a href="{{ url_for('choose_image') }}" class="menu-btn">次へ</a>
@@ -119,6 +84,11 @@
                 &copy; 2025 ビューティーチェックアプリ
             </div>
         </footer>
+
+
+
+        <!-- JavaScriptの読み込み -->
+         <script src="{{ url_for('static', filename='js/skinQ.js') }}"></script>
     
     </body>
 </html>

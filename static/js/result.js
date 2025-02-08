@@ -18,9 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        //  解析結果を HTML に表示（Flask からのデータを Web ページに反映）
-        // 解析後の画像を `<img>` タグにセット（Flask が返した `processed_image`）
-        document.getElementById("processedImage").src = data.processed_image;
+        // 解析結果を HTML に表示（Flask からのデータを Web ページに反映）
+        // document.getElementById("processedImage").src = data.processed_image;
         
         // 解析結果
         document.getElementById("brightness").innerText = data.brightness;  // 明るさ

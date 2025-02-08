@@ -1,50 +1,64 @@
-import cv2
 import os
+from PIL import Image
+import cv2
 import numpy as np
 
 
-def extract_face(image_path, save_path):
-    # 画像読み込むみ
-    image = cv2.imread(image_path)
-    if image is None:
-        print(f"画像が見つかりません: {image_path}")
+
+
+# 顔検出＆トリミング
+def extract_face(image_path):
+    # OpenCVで画像を読み込み
+    img = cv2.imread(image_path,cv2.IMREAD_UNCHANGED)
+
+    # OpenCVでの読み込みに失敗した場合、PILで読み込んでOpenCV形式に変換
+    if img is None:
+        try:
+            print(f" OpenCV で画像を開けなかったため、PIL で開きます: {image_path}")
+            img_pil = Image.open(image_path).convert("RGB")  # PNG対応
+            img = np.array(img_pil)
+            img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)  # OpenCV形式に変換
+            print("✅ PIL で画像を開いて OpenCV に変換成功！")
+        except Exception as e:
+            print(f"❌ [ERROR] PIL でも画像を開けませんでした: {e}")
+            return None
+    
+    print(f"✅ 画像の読み込み成功: {image_path}, 画像サイズ: {img.shape}")
+
+
+    # **RGBA の場合、BGR に変換**
+    if img.shape[-1] == 4:  
+        print("🔍 透明チャンネルを削除します")
+        img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
+
+    #  顔認識モデルのパス
+    face_cascade_path = cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
+    if not os.path.exists(face_cascade_path):
+        print(f"❌ [ERROR] 顔認識モデルが見つかりません: {face_cascade_path}")
         return None
 
-    # 顔検出用の分類器（Haar Cascade）をロード
-    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+    #  顔認識モデルを読み込む
+    face_cascade = cv2.CascadeClassifier(face_cascade_path)    
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    # グレースケールに変換
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-    # 顔を検出
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(50, 50))
-
-    # 顔が見つからない場合
+    #  顔の検出
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(100, 100))
+    
     if len(faces) == 0:
-        print("顔が検出されませんでした")
+        print("❌ [ERROR] 顔が検出されませんでした")
+        print("🔍 考えられる原因:明るさ・コントラスト・角度")
         return None
-    
 
 
-    # 最初に検出された顔の座標を取得
-    (x, y, w, h) = faces[0]
+    # 顔をトリミング
+    for (x, y, w, h) in faces:
+         if w < 50 or h < 50:  # 小さすぎる顔は誤検出の可能性があるので無視
+            continue
+         face_region = img[y:y+h, x:x+w]  
+         break  
 
-    # 顔部分だけを切り抜き
-    face_region = image[y:y+h, x:x+w]
+    if face_region is None or face_region.size == 0:
+        print("❌ [ERROR] 顔の切り抜きが失敗しました！")
+        return None
 
-    # 保存フォルダがなければ作成
-    os.makedirs(save_path, exist_ok=True)
-    trimmed_path = os.path.join(save_path, "image1_trimmed.png")
-
-    # 画像を保存
-    cv2.imwrite(trimmed_path, face_region)
-    print(f"顔トリミング成功！保存先: {trimmed_path}")
-    
-    return trimmed_path
-
-# テスト用（実際にはFlaskアプリから呼び出す）
-if __name__ == "__main__":
-    input_path = "static/uploads/image1.png"  # 元画像のパス
-    output_folder = "static/trimming"  # 保存フォルダ
-    extract_face(input_path, output_folder)
-
+    return face_region  # `face_region` を `process_face()` に渡す

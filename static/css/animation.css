@@ -16,8 +16,8 @@ body {
 
 .circle {
     position: absolute;
-    width: 120px;  /* 円の大きさ */
-    height: 120px;
+    width: 140px;  /* 円の大きさ */
+    height: 140px;
     border-radius: 50%;
     filter: blur(10px);   /* ぼやけた表示 */
     opacity: 0.8;   /* 透けさせる */
@@ -33,7 +33,8 @@ body {
 }
 
 .loading-text {
-    font-size: 25px;
+    font-size: 30px;
+    font-weight: bold; 
     font-family: 'Zen Maru Gothic', sans-serif;
     color: black;
 }

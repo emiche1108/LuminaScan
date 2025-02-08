@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>エラー - 顔認識失敗</title>
+    
+        <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+        <!-- Googleフォント -->
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    </head>
+    
+
+
+    <body>
+        <header>
+            <img src="{{ url_for('static', filename='fixed-images/header_welcome.jpg') }}" alt="ヘッダー画像">
+        </header>
+
+        <main>
+            <div class="top-area"> 
+                <h1 class="main-title">ERROE</h1>
+
+
+                <div class="error-container">
+                    <p class="error-message">{{ error_message }}</p>
+                
+                    <div class="button-container">
+                        <a href="{{ url_for('upload_photo_page') }}" id="upload-btn" class="menu-btn">別の写真をアップロード</a>
+                        <a href="{{ url_for('take_photo_page') }}" id="take-photo-btn" class="menu-btn">撮影ページへ</a>
+                    </div>
+                </div>
+        </main>
+        
+        
+
+        <footer id="footer">
+            <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+            <div id="Copyright">
+                &copy; 2025 ビューティーチェックアプリ
+            </div>
+        </footer>
+
+</body>
+</html>

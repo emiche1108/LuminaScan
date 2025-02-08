@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ JavaScript が正しく読み込まれました！");
-    animateCircles(); // アニメーションを手動で実行
+    console.log(" JavaScript が正しく読み込まれました！");
 });
 
 
 
 // ランダムな位置を生成する関数
 function getRandomPosition() {
-    const x = Math.random() * 40 - 20; // -20px ～ 20px の範囲でランダム移動
-    const y = Math.random() * 40 - 20;
+    const x = Math.random() * 500 - 250; // -250px～250pxの範囲でランダム移動
+    const y = Math.random() * 400 - 200; // -200px ～ 200px
+    const scale = Math.random() * 0.6 + 0.7; // 70% ～ 130% の大きさ
     return `translate(${x}px, ${y}px)`;
 }
 
@@ -19,8 +19,8 @@ function animateCircles() {
         circle.style.transform = getRandomPosition();
     });
 }
-//0.5秒毎にランダムに動く
-setInterval(animateCircles, 500); 
+//1秒毎にランダムに動く
+setInterval(animateCircles, 1000); 
 
 
 // 10秒後にアニメーションを終了する
@@ -30,6 +30,6 @@ setTimeout(() => {
         loadingScreen.style.display = "none";
     }
 
-    // 🔥 10秒後に result.html へ遷移
-    window.location.href = "/result";
-}, 10000); 
+    // 直に `/result` にリダイレクト
+    window.location.href = `/result`;
+}, 10000);

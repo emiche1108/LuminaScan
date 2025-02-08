@@ -11,57 +11,155 @@
     
      <!-- Googleフォント -->
       <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-    </head>
+  </head>
+  
+  
+  <body>
+    <header>
+      <img src="{{ url_for('static', filename='fixed-images/header_welcome.jpg') }}" alt="ヘッダー画像">
+    </header>
     
     
-    <body>
-      <header>
-        <img src="{{ url_for('static', filename='fixed-images/header_welcome.jpg') }}" alt="ヘッダー画像">
-      </header>
+    <div class="top-area"> 
+      <h1 class="main-title">解析結果</h1>
+    </div>
       
-      <div class="top-area"> 
-        <h1 class="main-title">解析結果</h1>
-        
+      <!-- <div class="result-images">
+        <h2>撮影画像</h2>
+        <img id="originalImage" src="{{ original_image }}" alt="撮影画像" width="300">
+        <h2>顔トリミング後</h2>
+        <img id="trimmedImage" src="{{ trimming_image }}" alt="トリミング画像" width="300">
+        <h2>解析後画像</h2>
+        <img id="processedImage" src="{{ processed_image }}" alt="解析後画像" width="300">
+      </div> -->
 
-        <div class="result-images">
-          <h2>撮影画像</h2>
-          <img id="originalImage" src="{{ original_image }}" alt="撮影画像" width="300">
-          <h2>顔トリミング後</h2>
-          <img id="trimmedImage" src="{{ trimmed_image }}" alt="トリミング画像" width="300">
-          <h2>解析後画像</h2>
-          <img id="processedImage" src="{{ processed_image }}" alt="解析後画像" width="300">
+
+
+        <!-- チャート図 -->
+        <div class="chart-container">
+          <canvas id="radarChart" width="500" height="500"></canvas> 
+        </div>
+        
+        <!-- 肌診断点数化 -->
+        <div class="skin-results">
+          <h2 class="results-title">肌診断結果</h2>
+          <div class="result-item"><strong>水分量:</strong> <span id="moisture_level">{{ moisture_level }}</span></div>
+          <div class="result-item"><strong>皮脂バランス:</strong> <span id="oil_level">{{ oil_balance }}</span></div>
+          <div class="result-item"><strong>明るさ:</strong> <span id="brightness">{{ brightness }}</span></div>
+          <div class="result-item"><strong>シミ:</strong> <span id="spots">{{ spots }}</span></div>
+          <div class="result-item"><strong>シワ:</strong> <span id="wrinkles">{{ wrinkles }}</span></div>
+          <div class="result-item"><strong>キメ:</strong> <span id="texture_fineness">{{ texture_fineness }}</span></div>
+          <div class="result-item"><strong>くま:</strong> <span id="dark_circles">{{ dark_circles }}</span></div>
         </div>
 
+
+        <!-- アンケートに基づく、アドバイス -->
+        <div class="advice">
+          <h2>アドバイス</h2>
+          <ul>
+            {% if skin_issues %}
+            {% for issue in skin_issues %}
+            <li class="advice-item">
+              <strong>{{ issue }}</strong>: {{ advice_dict.get(issue, "特にアドバイスはありません") }}
+            </li>
+            {% endfor %}
+            {% else %}
+            <li class="advice-item">特にアドバイスはありません。</li>
+            {% endif %}
+          </ul>
+        </div>
+      
         
-        <h2>肌解析リザルト</h2>
-        <canvas id="radarChart"></canvas>
+        <!-- 肌診断説明 -->
+         <div class="skin-description">
+
+          <div class="skin-item">
+            <h3>水分量</h3><p id="moisture_desc">
+            皮ふには、肌のうるおいを保ち、外的刺激から肌を守るバリア機能があります。<br>
+            水分量の減少は、バリア機能が低下した乾きやすい肌状態が原因です。<br>
+            毎日のスキンケアで水分・油分をバランスよく与え、日中の紫外線対策を行いましょう。</p>
+          </div>
+          
+          
+          <div class="skin-item">
+            <h3>皮脂バランス</h3><p id="oil_desc">
+            油分過剰は、気温・ストレス・生活リズムの乱れにより、皮脂腺が活発化し、<br>
+            過剰な皮脂が肌表面に分泌されている状態です。毛穴・ニキビ・吹き出物ができやすくなります。<br>
+            肌表面の皮脂や汚れをきちんと取り去り、水分を十分に与えましょう。</p>
+          </div>
+            
+
+          <div class="skin-item">
+            <h3>キメ</h3><p id="texture_desc">
+            キメとは、目にみえる肌表面の細かな凹凸のことで、肌のなめらかさの指標となります。<br>
+            整ったキメは、肌のうるおいとやわらかさを保ち、外的刺激から肌を守ります。<br>
+            毎日の保湿ケアで、キメを整えましょう。</p>
+          </div>
+
+
+          <div class="skin-item">
+            <h3>くすみ</h3><p id="dullness_desc">
+            くすみは、紫外線・新陳代謝の低下・不完全なクレンジングが原因です。<br>
+            肌表面の不要な角質を取り去り、保湿ケア・美白ケアをプラスし透明感を与えましょう。<br>
+            日やけ止めをプラスし、紫外線から肌を守りましょう。</p>
+          </div>
+
+
+          <div class="skin-item">
+            <h3>シミ</h3><p id="spots_desc">
+            シミは、紫外線やホルモンバランスの影響により、メラノサイトの働きが活発になることでメラニンが過剰に生成され、<br>
+            ターンオーバーで代謝しきれずできます。<br>
+            ターンオーバーを促進し、メラニン生成を抑制する美白ケアを行いましょう。<br>
+            また、日中の紫外線対策で予防しましょう。</p>
+          </div>
+
+
+          <div class="skin-item">
+            <h3>シワ</h3><p id="wrinkle_desc">
+            シワは、加齢や紫外線ダメージにより発生します。<br>
+            肌内部のエラスチン繊維やコラーゲン繊維が細く切れやすい状態になり新しい細胞を生み出す働きが衰え、<br>
+            肌全体のハリが低下し、シワができます。<br>
+            日々のスキンケアと紫外線対策を心がけましょう。</p>
+          </div>
+
+
+          <div class="skin-item">
+            <h3>赤み</h3><p id="redness_desc">
+            赤みは、紫外線や異物（アレルゲン）の侵入により、過剰に免疫機能が働き、防御反応として皮ふが起こす炎症が原因です。<br>
+            摩擦等の物理的刺激を避け、紫外線ダメージから肌を守りましょう。</p>
+          </div>
+
+          <div class="skin-item">
+            <h3>くま</h3><p id="dark_circles_desc">
+            くまとは、目の下に生じる色ムラのことです。<br>
+            くまの原因は色素沈着・血行不良・生まれつきの骨格形状や加齢などがあり、<br>
+            症状に合わせた適切なケアが必要です。</p>
+          </div>
+
+
+          <div class="skin-item">
+            <h3>毛穴</h3><p id="pores_desc">
+            毛穴は、皮脂腺が活発になり、過剰に皮脂が分泌されて目立ちやすくなります。<br>
+            肌表面の皮脂や汚れをきちんと取り去り、水分を十分に与えて毛穴を引き締めましょう。</p>
+          </div>
+        </div>
         
-        <h2>肌診断結果</h2>
-        <p><strong>水分量:</strong> {{ moisture_level }}%</p>
-        <p><strong>皮脂バランス:</strong> {{ oil_level }}%</p>
-        <p><strong>明るさ:</strong> {{ brightness }}</p>
-        <p><strong>シミ:</strong> {{ spots }}</p>
-        <p><strong>シワ:</strong> {{ wrinkles }}</p>
-        <p><strong>キメ:</strong> {{ texture_fineness }}</p>
-        <p><strong>くま:</strong> {{ dark_circles }}</p>
-      </div>  
+        
+        
+        <footer id="footer">
+          <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+          <p>&copy; 2025 ビューティーチェックアプリ</p>
+        </footer>
+        
+        
+        <!-- Chart.js のCDNを追加 -->
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+         <!-- Chart.js DataLabels プラグイン(必ずChart.jsの後に書く) -->
+         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
-    
-    <footer id="footer">
-        <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
-        <p>&copy; 2025 ビューティーチェックアプリ</p>
-    </footer>
-
-
-    
-     <!-- Chart.js のCDNを最初に読み込む -->
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-     <!-- Flask の static フォルダから chart.js を読み込む -->
-     <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
-
-
-</body>
-
+         <!-- Flask の static フォルダから chart.js を読み込む -->
+          <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+          
+  </body>
 </html>
