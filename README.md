@@ -1,0 +1,205 @@
+<div align="center">
+   <picture>
+   https://raw.githubusercontent.com/emiche1108/skincheck/main/readme_assets/ファイル名.png
+   </picture>
+</div>
+
+
+### 目次
+- [💄アプリケーションのご説明](#app-description)
+- [🎯ターゲットユーザー](#target-user)
+- [💡アプリケーションの作成動機](#writing-motivation)
+- [🏃‍♀️スタートガイド（環境構築 & 起動手順）](#getting-started)
+- [🛠️アプリケーションの機能紹介](#app-features)
+- [📈制作を通じて向上したスキル](#gained-skills)
+- [💻使用技術](#tech-stack)
+- ER図
+- 階層図
+<br>
+
+
+## 💄アプリケーションについて<a id="app-description"></a>
+
+SkinCheckは、AI顔認識技術を活用した肌診断アプリ です。  
+顔画像を解析し、水分量・皮脂バランス・明るさ・シミ・シワ・キメ・くま などの肌状態を数値化。  
+その結果に基づいて、適切なスキンケアアドバイスを提供します。  
+
+【主な特徴】  
+- AI解析: 顔認識と画像処理技術を活用した肌コンディション診断
+- スコア表示: 7つの肌指標を数値化し、グラフで可視化
+- アドバイス提供: 診断結果に基づいたスキンケアの推奨
+<br>
+
+
+## 🎯ターゲットユーザー<a id="target-user"></a>
+性別や年齢を問わず誰でも使える肌診断ツールです。  
+清潔感を大切にしたいビジネスパーソンや、肌の変化が気になり始めた方にもおすすめです。  
+スキンケアをもっと手軽に、スマートに取り入れたい方へ。  
+<br>
+
+
+## 💡作成したキッカケ<a id="writing-motivation"></a>
+前職では、AIを活用した需要予測業務に携わっていました。  
+
+業務以外でも 歯科医院のAIシミュレーター や 化粧品店のAIメイクシミュレーター など、  
+身近な場面でAIに触れる機会が増え、AI技術の幅広い活用を実感しました。  
+
+こうした経験を通じて「未来予測」への関心 が高まった結果
+自らもAIを活用したシステムを開発してみたいと考えるようになりました。
+
+AIの活用方法を深く理解することを目的 に、
+実験的な個人プロジェクト としてこのアプリを開発しました。
+<br>
+<br>
+<br>
+
+---
+---
+### 🏃‍♀️スタートガイド（環境構築 & 起動手順）<a id="getting-started"></a>
+以下の手順に従って ローカル環境 で実行できます。
+
+#### 1. ZIPファイルをダウンロード
+まずはダウンロードしてください。
+
+#### 2. コマンドラインを使用
+ターミナルでコマンドを入力し、アプリのフォルダへ移動します。 
+```
+cd ~/Desktop/skincheck
+```
+
+#### 3. 仮想環境のセットアップ（venv）
+Python の仮想環境（venv）を作成します。
+```
+$ python -m venv venv
+$ source venv/bin/activate  # Windowsの場合は `venv\Scripts\activate`
+```
+
+#### 4. 必要なライブラリのインストール
+Flask と OpenCV を含む必要なライブラリをインストールします。
+```
+$ pip install flask opencv-python-headless
+```
+
+#### 5. Flask アプリの起動  
+Flask アプリを実行し、ブラウザからアクセスできるようにします。
+```
+$ python3 app.py
+```
+
+#### 6.成功すると…
+Running on `http://127.0.0.1:5000/` と表示されます。<br> 
+ブラウザを開いて以下のURLにアクセスしてください。
+``` 
+ *http://127.0.0.1:5000 
+```
+<br>
+<br>
+
+---
+---
+
+## 🛠️アプリケーション機能のご紹介<a id="app-features"></a>
+#### ▶ 機能一覧
+| サービス内容 |　質問画面 |
+| ---- | ---- |
+| ![ログイン画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/loginpage.png) | ![ログイン成功画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/loginsuccess-page.png) |
+| ユーザーネームとパスワードによる認証機能を実装。 | ログイン後にランダムでポジティブなメッセージを表示する機能を実装（現在10種類のメッセージを用意）。 |
+
+| 計測方法の選択 |　顔認識とアップロード |
+| ---- | ---- |
+| ![新規登録画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/registeration-page.png) | ![MYページ画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/mypage.png) |
+| 新規アカウント登録機能を実装。 | マンダラシート形式でデータを表形式で表示する機能を実装（印刷可能）。 |
+
+| 解析画面 |　診断結果 |
+| ---- | ---- |
+| ![Mandalaチャート作成イントロ画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/manadala-creation-intropage.png) | ![　PDF出力画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/post-hubpage.png) |
+| Mandalaチャートを作成する機能を実装。 |ユーザー同士で目標達成を応援し合う掲示板機能を実装。 |
+
+
+#### ▶ 機能サンプル動画
+| サンプル動画                          | 説明                      |
+|---------------------------------------|---------------------------|
+| <img src="sample_videos/VisionGrid_sample_myPage.gif" width="400" alt="顔認証"> | カメラ撮影時のリアルタイム顔認証 |
+| <img src="sample_videos/VisionGrid_sample_MandalaCreation.gif" width="400" alt="アニメーション"> | 解析中のアニメーション |
+| <img src="sample_videos/VisionGrid_sample_MandalaCreation.gif" width="400" alt="アニメーション"> | 診断結果 |
+
+<br>
+
+
+## 📈 制作を通じて向上したスキル<a id="gained-skills"></a>
+| スキル                         | 学習内容                           |
+|------------------------------|------------------------------------|
+|Webアプリ開発	                 |Flask × OpenCV を活用した、画像処理 & Webアプリの実装　　　　|
+|データ可視化	                    |Chart.js を用いた動的なデータの可視化|
+|フロントエンド ↔ バックエンド連携   |JavaScript でのデータ取得・Chart.js への反映・Flaskとの連携　|
+|GitHub運用による、バージョン管理　　|効率的なバージョン管理・README作成・リポジトリの整理力向上　　　|
+
+「この方法で良いのか？」「このコードはどこと連動しているのか？」と考える習慣がつき、<br>
+設計の視点がレベルアップしたと自負してます。<br>
+<br>
+
+### 今後の目標
+ローカル環境だけでなく、Heroku や AWS にデプロイし「誰でも気軽に使えるアプリ」 を目指します。<br>
+データベースを導入し、解析結果を蓄積・活用できる仕組み を構築したいと考えています。
+<br>
+
+
+## 💻使用技術<a id="tech-stack"></a>
+| 分類         | 使用技術                     　　|
+|--------------|-----------------------------|
+| フロントエンド | HTML, CSS, JavaScript(Chart.js)    |
+| バックエンド   | python(Flask・OpenCV)         　   |
+| 開発ツール     | Visual Studio Code,GitHub, venv   |
+<br>
+
+
+### ER図
+<br>
+
+
+### ファイル階層図
+skin_diagnosis_app/
+├── app.py             # Flaskアプリケーション（処理の呼び出し＋結果を返す）
+├── process.py         # openCV, オーバーレイ
+├── trimming.py        #トリミング
+├── skin_analysis.py   #肌の解析【大事】
+├── session.py         #アンケート結果
+
+├── templates/  
+│ ├── index.html         #トップページ（ビューティーチェックスタートボタン）
+│ ├── skinQ.html         #肌悩みアンケート
+│ ├── choose.html        #アップロードor撮影の選択
+│ ├── upload_photo.html  #アップロード
+│ ├── take_photo.html    #撮影
+│ ├── animation.html     #アニメーション
+│ ├── error.html         #エラーページ
+│ └── result.html        #結果ページ
+
+├── static/  
+│   ├── models/           
+│        └── weights/
+│             └──学習済みjsonファイル　
+　　　　　　　　　　　　ssdMobilenetv1, faceLandmark68Net, faceRecognitionNet　を活用
+            
+│   ├── js/ 
+│   │  ├── face-api.js       #顔認証API   
+│   │  ├── face-api.min.js
+│   │  ├── age.js            #skinQの質問ボタン
+│   │  ├── take-photo.js     #写真撮影時の明るさ, 顔認識(95点以上で合格)
+│   │  ├── upload-photo.js   #アップロード時の顔認識（85点以上で合格）
+│   │  ├── animation.js      #アニメーション
+│   │  ├── chart.js          #結果ページのグラフ
+│   │  └── result.js         #結果ページ
+         
+│   ├── css/       
+│   │   ├── animation.css     
+│   │   └── style.css  
+│   ├── 01uploads/      　      # 元画像
+│   │     └──  image1.jpg
+│   ├── 02trimmed/      　      # トリミング画像
+│   │     └──  image1.jpg
+│   ├── 03final/      　        # オーバーレイ済み画像
+│   │     └──  image1.jpg
+│   ├──── fixed-images/         # 固定画像
+│   │   ├── header.jpeg
+│   │   └── footer.jpeg
