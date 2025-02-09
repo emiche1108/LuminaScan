@@ -98,7 +98,7 @@ http://127.0.0.1:5000
 #### ▶ 機能一覧
 | トップページ |　サービス内容 |
 | -------- | -------- |
-| ![トップページ] | ![サービス内容]<img src="static/readme-images/index-image2.jpg" width="300">|
+| ![トップページ] | <img src="static/readme-images/index-image2.jpg" width="300"　alt="3種メニュー">|
 |  サービス紹介　　| 3種類の診断メニュー |
 
 | 肌に関するアンケート |　診断方法の選択|
