@@ -103,13 +103,13 @@ http://127.0.0.1:5000
 
 | 肌に関するアンケート |　診断方法の選択|
 | ----------------  | ----------------  |
-| <img src="static/readme-images/skinQ-image.jpg" width="350" alt="アンケート">| <img src="static/readme-images/choose.jpg" width="350" alt="方法選択">|
+| <img src="static/readme-images/skinQ-image.jpg" width="350" alt="アンケート">| <img src="static/readme-images/choose-image.jpg" width="350" alt="方法選択">|
 | 肌悩みの聞き取り画面。 | 画像アップロード or カメラ撮影どちらかを選べます。|
 
 | 写真撮影ページ |　カメラ起動画面・顔認証 |
 | ----------------  | ---------------- |
-| [Mandalaチャート作成イントロ画面] | [　PDF出力画面] |
-| Mandalaチャートを作成する機能を実装。 |ユーザー同士で目標達成を応援し合う掲示板機能を実装。 |
+| <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="写真"> | [　PDF出力画面] |
+| 写真撮影を選択。カメラ起動と撮影前の注意書きを表示。 | カメラ起動＋リアルタイムで顔認識システムの作動。 |
 
 | 結果ページ |　エラー画面 |
 | ---------------- | ---------------- |
