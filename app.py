@@ -3,9 +3,10 @@ import os
 import base64  # 写真撮影。Base64エンコードとデコードを行う
 import json 
 import cv2
+from flask import jsonify  # JSONレスポンスを返すためにインポート
 from advice import save_survey_data, get_survey_data, get_advice #アドバイス
 from advice import ADVICE_DICT  # アドバイス辞書は advice.py にある
-from trimming import extract_face  # トリミング処理
+from trimming import extract_face # トリミング
 import numpy as np
 from skin_analysis import analyze_skin  # 解析結果
 #from process import process_image # オーバーレイ
@@ -92,55 +93,45 @@ def save_image(photo_data):
     except Exception as e:
         print(f" 画像保存エラー: {e}")
         abort(500, "画像保存に失敗しました")
+        return None
 
 
 
-# 顔認識処理を共通化（顔が認識できなかったらエラー JSON を返す）
+
+
+# 共通設定（顔認識・トリミング。できない場合はエラー画面へ）
 def process_face(filepath):
     trimmed_path = os.path.join(TRIM_FOLDER, FILENAME)
     #processed_path = os.path.join(PROCESSED_FOLDER, FILENAME)
 
+    # まずはトリミング
     try:
-        face_region = extract_face(filepath)  # トリミング
+        print(f"🔍 トリミング開始: {filepath}") 
+        face_region = extract_face(filepath)  
 
-        # 顔認識が失敗したらエラーページへ JSON で返す
-        if face_region is None or not isinstance(face_region, np.ndarray):
-            print(" 顔が認識できませんでした！")
-            return jsonify({
-                "error": "顔が認識できませんでした",
-                "redirect_url": url_for('error_page', message="顔が認識できませんでした。別の写真を試してください。")
-            }), 400  
-        print(f" 保存前のファイル確認: {trimmed_path}, 存在する？ {os.path.exists(trimmed_path)}")
-
-        # トリミング画像の保存
-        cv2.imwrite(trimmed_path, face_region)
-        if os.path.exists(trimmed_path):
-            print(f" トリミング画像を保存成功: {trimmed_path}")
-        else:
-            print(f" [ERROR] トリミング画像の保存に失敗しました: {trimmed_path}")
-            return jsonify({
-                "error": "トリミング画像の保存に失敗しました",
-                "redirect_url": url_for('error_page', message=f"トリミング画像の保存に失敗しました: {trimmed_path}")
-            }),500
+        # **顔検出失敗時はJSONを返す**
+        if face_region is None:
+            print("❌ [ERROR] 顔認識に失敗しました。")
+            return jsonify({"error": "顔が認識できませんでした"}), 400
         
-        # **処理済み画像を保存**
-        #cv2.imwrite(processed_path, face_region)
-        #if os.path.exists(processed_path):
-            print(f" 処理済み画像を保存成功: {processed_path}")
-        #else:
-        #    print(f" [ERROR] 処理済み画像の保存に失敗しました: {processed_path}")
+        # 画像の保存処理
+        os.makedirs(TRIM_FOLDER, exist_ok=True)
+        success = cv2.imwrite(trimmed_path, face_region)
 
-        return jsonify({
-            "message": "画像処理完了",
-            "redirect_url": url_for('result')
-        })
+        if not success:
+            print(f"❌ 画像の保存に失敗しました: {trimmed_path}")
+            return jsonify({"error": "画像の保存に失敗しました"}), 500
+        
+        
+        # **成功時に JSON を返す**
+        print(f"✅ トリミング画像の保存成功: {trimmed_path}")
+        return jsonify({"message": "画像処理完了", "redirect_url": url_for('start_animation')})
 
     except Exception as e:
-        print(f" トリミングエラー: {e}")
-        return jsonify({
-            "error": "顔のトリミングに失敗しました",
-            "redirect_url": url_for('error_page', message="顔のトリミング中にエラーが発生しました")
-        }),500
+        print(f"❌ トリミングエラー: {e}")
+        return jsonify({"error": "処理中にエラーが発生しました"}), 500
+
+
 
 
 
@@ -149,28 +140,37 @@ def process_face(filepath):
 def take_photo_page():
     if request.method == 'GET':
         return render_template('take_photo.html')
-
+    
     try:
+        # **JSON データを取得**
         data = request.get_json()
-        if not data:
-            return jsonify({"error": "データが送信されていません"}), 400
+        print("📩 受信データ:", data) 
 
-        photo_data = data.get("photoData", "")
-        if not photo_data:
-            return jsonify({"error": "photoData が空です"}), 400
-
+        if not data or "photoData" not in data:
+            return jsonify({"error": "画像データが送信されていません"}), 400
+        
         # 画像保存
-        photo_data = base64.b64decode(photo_data.replace("data:image/png;base64,", ""))
+        photo_data = base64.b64decode(data["photoData"].split(",")[1])
         filepath = save_image(photo_data)
 
-        # 顔認識 & JSON 返却
-        return process_face(filepath)
+        if filepath is None:
+            return jsonify({"error": "画像の保存に失敗しました"}), 500
+        
 
-    except Exception as e:
-        print(f" サーバーエラー: {e}")
-        return jsonify({"error": "サーバー内部エラー"}), 500
+        if filepath is None:
+            return jsonify({"error": "画像の保存に失敗しました"}), 500
+
+        # **process_face() のレスポンスを受け取る**
+        response = process_face(filepath)
+        print("🔄 process_face のレスポンス:", response.get_json())
+
+        return response  # そのまま JSON を返す
+
     
-
+    except Exception as e:
+            print(f" サーバーエラー: {e}")
+            return jsonify({"error": "サーバー内部エラーが発生しました"}), 500
+    
 
 
 # ...画像アップを選択した場合
@@ -178,29 +178,40 @@ def take_photo_page():
 def upload_photo_page():
     if request.method == 'GET':
         return render_template('upload_photo.html')
+    
 
     try:
         if 'file' not in request.files:
-            return jsonify({"error": "ファイルが送信されていません"}), 400
+            print(" [ERROR] ファイルが送信されていません")
+            return redirect(url_for('error_page', message="ファイルが送信されていません"))
 
         file = request.files['file']
         if file.filename == '':
-            return jsonify({"error": "ファイルが選択されていません"}), 400
+            print(" [ERROR] ファイルが選択されていません")
+            return redirect(url_for('error_page', message="ファイルが選択されていません"))
 
         # 画像を保存
         filepath = save_image(file.read())
+        if filepath is None:
+            print(" [ERROR] 画像の保存に失敗しました")
+            return redirect(url_for('error_page', message="画像の保存に失敗しました。"))
 
-        # 顔認識 & JSON 返却
-        response_json = process_face(filepath)
+        # 顔認識 & 処理
+        response = process_face(filepath)
 
-        # **Flask のレスポンスをログ出力して確認**
-        print(" Flask のレスポンス:", response_json)
+    # **エラー時はエラーページへリダイレクト**
+        if response.status_code == 400:
+            error_message = response.get_json().get("error", "顔認識に失敗しました。")
+            return redirect(url_for('error_page', message=error_message))
 
-        return response_json  # **JSON をそのまま返す**
-
+        print("✅ 顔認識 & トリミング成功！アニメーションへリダイレクト")
+        return redirect(url_for('start_animation'))
+    
     except Exception as e:
-        print(f"サーバーエラー: {e}")
-        return jsonify({"error": "サーバー内部エラー"}), 500
+        print(f" [ERROR] サーバーエラー: {e}")
+        return redirect(url_for('error_page', message="サーバー内部エラーが発生しました。"))
+    
+
 
 
 
@@ -262,15 +273,15 @@ def result():
     trimmed_path = os.path.join(TRIM_FOLDER, filename)  
     # processed_path = os.path.join(PROCESSED_FOLDER, filename)  
 
-    print(f"🔍 確認: トリミング画像 → {trimmed_path}, 存在する？ {os.path.exists(trimmed_path)}")
-    #print(f"🔍 確認: 解析済み画像 → {processed_path}, 存在する？ {os.path.exists(processed_path)}")
+    print(f" 確認: トリミング画像 → {trimmed_path}, 存在する？ {os.path.exists(trimmed_path)}")
+    #print(f" 確認: 解析済み画像 → {processed_path}, 存在する？ {os.path.exists(processed_path)}")
 
     if not os.path.exists(trimmed_path):
         return redirect(url_for('error_page', message=f"トリミング画像が見つかりません: {trimmed_path}"))
 
     # **Flask に渡す画像の URL**
     #processed_image_url = url_for('static', filename=f'03final/{filename}')
-    #print(f"✅ Flask に渡す `processed_image` の URL → {processed_image_url}")  
+    #print(f" Flask に渡す `processed_image` の URL → {processed_image_url}")  
 
 
 
@@ -292,7 +303,6 @@ def result():
 
     # **アドバイスを取得**
     advice_list = get_advice(skin_issues)
-
 
 
     return render_template(
