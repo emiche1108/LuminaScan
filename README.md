@@ -98,12 +98,12 @@ http://127.0.0.1:5000
 #### ▶ 機能一覧
 | トップページ |　サービス内容 |
 | ----------------  | ---------------- |
-| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="200" height="300" alt="3種メニュー">|
+| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="500" alt="3種メニュー">|
 |  サービス紹介　　| 3種類の診断メニュー |
 
 | 肌に関するアンケート |　診断方法の選択|
 | ----------------  | ----------------  |
-| <img src="static/readme-images/skinQ-image.jpg" width="200" height="300" alt="アンケート">| <img src="static/readme-images/choose.jpg" width="200" height="300" alt="方法選択">|
+| <img src="static/readme-images/skinQ-image.jpg" width="500" alt="アンケート">| <img src="static/readme-images/choose.jpg" width="500" alt="方法選択">|
 | 肌悩みの聞き取り画面。 | 画像アップロード or カメラ撮影どちらかを選べます。|
 
 | 写真撮影ページ |　カメラ起動画面・顔認証 |
