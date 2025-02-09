@@ -59,29 +59,26 @@ AIの活用方法を深く理解することを目的 に、
 以下の手順に従って ローカル環境 で実行できます。
 
 #### 1. ZIPファイルをダウンロード
-まずはダウンロードしてください。
+まずはアプリケーションのダウンロードと解凍してください。
 
-#### 2. コマンドラインを使用
-ターミナルでコマンドを入力し、アプリのフォルダへ移動します。 
+#### 2. ディレクトリへ移動します。 
 ```
-cd ~/Desktop/skincheck
+cd ~/Desktop/LuminaScan
 ```
 
 #### 3. 仮想環境のセットアップ（venv）
-Python の仮想環境（venv）を作成します。
 ```
 $ python -m venv venv
 $ source venv/bin/activate  # Windowsの場合は `venv\Scripts\activate`
 ```
 
 #### 4. 必要なライブラリのインストール
-Flask と OpenCV を含む必要なライブラリをインストールします。
 ```
-$ pip install flask opencv-python-headless
+pip install --upgrade pip  
+pip install flask opencv-python-headless pillow numpy
 ```
 
 #### 5. Flask アプリの起動  
-Flask アプリを実行し、ブラウザからアクセスできるようにします。
 ```
 $ python3 app.py
 ```
