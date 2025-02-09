@@ -158,48 +158,61 @@ Running on `http://127.0.0.1:5000/` と表示されます。<br>
 
 
 ### ディレクトリー図<a id="directory-diagram"></a>
-skin_diagnosis_app/
-├── app.py             # Flaskアプリケーション（処理の呼び出し＋結果を返す）
-├── process.py         # openCV, オーバーレイ
-├── trimming.py        #トリミング
-├── skin_analysis.py   #肌の解析【大事】
-├── session.py         #アンケート結果
+'''
+LuminaScan/
+├── app.py             # Flaskアプリケーション（メイン処理）
+├── process.py         # OpenCVを用いたオーバーレイ処理
+├── trimming.py        # 顔のトリミング処理
+├── skin_analysis.py   # 肌の解析（重要）
+├── advice.py          # アンケート結果処理
 
-├── templates/  
-│ ├── index.html         #トップページ（ビューティーチェックスタートボタン）
-│ ├── skinQ.html         #肌悩みアンケート
-│ ├── choose.html        #アップロードor撮影の選択
-│ ├── upload_photo.html  #アップロード
-│ ├── take_photo.html    #撮影
-│ ├── animation.html     #アニメーション
-│ ├── error.html         #エラーページ
-│ └── result.html        #結果ページ
+├── templates/         # HTMLテンプレート（フロントエンド）
+│   ├── index.html         # トップページ
+│   ├── skinQ.html         # 肌悩みアンケート
+│   ├── choose.html        # 画像アップロード or 撮影の選択
+│   ├── upload_photo.html  # 画像アップロード
+│   ├── take_photo.html    # 撮影ページ
+│   ├── animation.html     # アニメーション
+│   ├── error.html         # エラーページ
+│   └── result.html        # 結果ページ
 
-├── static/  
+├── static/           # 静的ファイル（モデル・スクリプト・画像など）
 │   ├── models/           
-│        └── weights/
-│             └──学習済みjsonファイル　
-　　　　　　　　　　　　ssdMobilenetv1, faceLandmark68Net, faceRecognitionNet　を活用
-            
-│   ├── js/ 
-│   │  ├── face-api.js       #顔認証API   
-│   │  ├── face-api.min.js
-│   │  ├── age.js            #skinQの質問ボタン
-│   │  ├── take-photo.js     #写真撮影時の明るさ, 顔認識(95点以上で合格)
-│   │  ├── upload-photo.js   #アップロード時の顔認識（85点以上で合格）
-│   │  ├── animation.js      #アニメーション
-│   │  ├── chart.js          #結果ページのグラフ
-│   │  └── result.js         #結果ページ
-         
-│   ├── css/       
-│   │   ├── animation.css     
-│   │   └── style.css  
-│   ├── 01uploads/      　      # 元画像
-│   │     └──  image1.jpg
-│   ├── 02trimmed/      　      # トリミング画像
-│   │     └──  image1.jpg
-│   ├── 03final/      　        # オーバーレイ済み画像
-│   │     └──  image1.jpg
-│   ├──── fixed-images/         # 固定画像
+│   │   └── weights/      # 学習済みモデルデータ（JSON形式）
+│   │        ├── ssdMobilenetv1
+│   │        ├── faceLandmark68Net
+│   │        ├── faceRecognitionNet
+│   │        └── その他のモデルファイル
+│
+│   ├── js/              # JavaScript（フロントエンドの動作）
+│   │   ├── face-api.js       # 顔認証API
+│   │   ├── face-api.min.js   # 顔認証API（ミニファイド版）
+│   │   ├── skinQ.js          # アンケートページのスクリプト
+│   │   ├── take-photo.js     # 撮影ページ（顔認識 99点以上で合格）
+│   │   ├── upload-photo.js   # アップロードページ（顔認識 90点以上で合格）
+│   │   ├── animation.js      # アニメーション処理
+│   │   ├── chart.js          # 結果ページのグラフ
+│   │   └── result.js         # 結果ページの処理
+│
+│   ├── css/            # スタイルシート（デザイン関連）
+│   │   ├── animation.css     # アニメーション専用CSS
+│   │   └── style.css         # 全体のスタイル
+│
+│   ├── 01uploads/      # 元画像（撮影・アップロードされた画像）
+│   │   └── image1.jpg
+│
+│   ├── 02trimmed/      # トリミング後の画像（顔部分のみ）
+│   │   └── image1.jpg
+│
+│   ├── 03final/        # オーバーレイ済みの最終画像
+│   │   └── image1.jpg
+│
+│   ├── fixed-images/   # 固定画像（ヘッダー・フッターなど）
 │   │   ├── header.jpeg
 │   │   └── footer.jpeg
+'''
+
+
+
+
+
