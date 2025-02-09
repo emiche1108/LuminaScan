@@ -157,7 +157,7 @@ Running on `http://127.0.0.1:5000/` と表示されます。<br>
 <br>
 
 
-### ディレクトリー図<a id="#directory-diagram"></a>
+### ディレクトリー図<a id="directory-diagram"></a>
 skin_diagnosis_app/
 ├── app.py             # Flaskアプリケーション（処理の呼び出し＋結果を返す）
 ├── process.py         # openCV, オーバーレイ
