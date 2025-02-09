@@ -97,22 +97,22 @@ http://127.0.0.1:5000
 ## 🛠️アプリケーション機能のご紹介<a id="app-features"></a>
 #### ▶ 機能一覧
 | トップページ |　サービス内容 |
-| -------- | -------- |
-| ![トップページ] | <img src="static/readme-images/index-image2.jpg" width="400" alt="3種メニュー">|
+| ----------------  | -------- -------- |
+| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="300" height="200" alt="3種メニュー">|
 |  サービス紹介　　| 3種類の診断メニュー |
 
 | 肌に関するアンケート |　診断方法の選択|
-| -------- | -------- |
-| <img src="static/readme-images/skinQ-image.jpg" width="400" alt="アンケート">| <img src="static/readme-images/choose.jpg" width="400" alt="方法選択">|
+| ----------------  | ----------------  |
+| <img src="static/readme-images/skinQ-image.jpg" width="300" height="200" alt="アンケート">| <img src="static/readme-images/choose.jpg" width="300" height="200" alt="方法選択">|
 | 肌悩みの聞き取り画面。 | 画像アップロード or カメラ撮影どちらかを選べます。|
 
 | 写真撮影ページ |　カメラ起動画面・顔認証 |
-| -------- | -------- |
-| ![Mandalaチャート作成イントロ画面] | ![　PDF出力画面] |
+| ----------------  | -------------- -- |
+| [Mandalaチャート作成イントロ画面] | [　PDF出力画面] |
 | Mandalaチャートを作成する機能を実装。 |ユーザー同士で目標達成を応援し合う掲示板機能を実装。 |
 
 | 結果ページ |　エラー画面 |
-| -------- | -------- |
+| ---------------- | ---------------- |
 | ![結果ページ] | ![エラー画面] |
 | Mandalaチャートを作成する機能を実装。 |ユーザー同士で目標達成を応援し合う掲示板機能を実装。 |
 
@@ -121,9 +121,9 @@ http://127.0.0.1:5000
 #### ▶ 機能サンプル動画
 | サンプル動画                          | 説明                      |
 |---------------------------------------|---------------------------|
-| <img src="sample_videos/VisionGrid_sample_myPage.gif" width="400" alt="顔認証"> | カメラ撮影時のリアルタイム顔認証 |
-| <img src="sample_videos/VisionGrid_sample_MandalaCreation.gif" width="400" alt="アニメーション"> | 解析中のアニメーション |
-| <img src="sample_videos/VisionGrid_sample_MandalaCreation.gif" width="400" alt="アニメーション"> | 診断結果 |
+| <img src="sample_videos/VisionGrid_sample_myPage.gif" width="300" height="200" alt="顔認証"> | カメラ撮影時のリアルタイム顔認証 |
+| <img src="sample_videos/VisionGrid_sample_MandalaCreation.gif" width="300" height="200" alt="アニメーション"> | 解析中のアニメーション |
+| <img src="sample_videos/VisionGrid_sample_MandalaCreation.gif" width="300" height="200" alt="アニメーション"> | 診断結果 |
 
 <br>
 
