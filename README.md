@@ -96,20 +96,26 @@ http://127.0.0.1:5000
 
 ## 🛠️アプリケーション機能のご紹介<a id="app-features"></a>
 #### ▶ 機能一覧
-| サービス内容 |　質問画面 |
+| トップページ |　サービス内容 |
 | ---- | ---- |
-| ![トップページ] | ![メニュー](readme-images/choose-image.png) |
-| ユーザーネームとパスワードによる認証機能を実装。 | ログイン後にランダムでポジティブなメッセージを表示する機能を実装（現在10種類のメッセージを用意）。 |
+| ![トップページ] | ![内容] |
+|  | 3つのサービスの紹介 |
 
-| 計測方法の選択 |　顔認識とアップロード |
+| 診断方法の選択 |　写真撮影|
 | ---- | ---- |
-| ![新規登録画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/registeration-page.png) | ![MYページ画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/mypage.png) |
+| ![新規登録画面] | ![]|
 | 新規アカウント登録機能を実装。 | マンダラシート形式でデータを表形式で表示する機能を実装（印刷可能）。 |
 
-| 解析画面 |　診断結果 |
+| 顔認証システム |　解析画面 |
 | ---- | ---- |
-| ![Mandalaチャート作成イントロ画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/manadala-creation-intropage.png) | ![　PDF出力画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/post-hubpage.png) |
+| ![Mandalaチャート作成イントロ画面] | ![　PDF出力画面] |
 | Mandalaチャートを作成する機能を実装。 |ユーザー同士で目標達成を応援し合う掲示板機能を実装。 |
+
+| 顔認証システム |　解析画面 |
+| ---- | ---- |
+| ![Mandalaチャート作成イントロ画面] | ![　PDF出力画面] |
+| Mandalaチャートを作成する機能を実装。 |ユーザー同士で目標達成を応援し合う掲示板機能を実装。 |
+
 
 
 #### ▶ 機能サンプル動画
