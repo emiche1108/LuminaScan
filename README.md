@@ -14,7 +14,7 @@
 - [📈制作を通じて向上したスキル](#gained-skills)
 - [💻使用技術](#tech-stack)
 - ER図
-- 階層図
+- [ディレクトリー図](#directory-diagram)
 <br>
 
 
@@ -157,7 +157,7 @@ Running on `http://127.0.0.1:5000/` と表示されます。<br>
 <br>
 
 
-### ファイル階層図
+### ディレクトリー図<a id="#directory-diagram"></a>
 skin_diagnosis_app/
 ├── app.py             # Flaskアプリケーション（処理の呼び出し＋結果を返す）
 ├── process.py         # openCV, オーバーレイ
