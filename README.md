@@ -69,7 +69,7 @@ cd ~/Desktop/LuminaScan
 #### 3. 仮想環境のセットアップ（venv）
 ```
 $ python -m venv venv
-$ source venv/bin/activate  # Windowsの場合は `venv\Scripts\activate`
+$ source venv/bin/activate    # Windowsの場合は `venv\Scripts\activate`
 ```
 
 #### 4. 必要なライブラリのインストール
@@ -87,7 +87,7 @@ $ python3 app.py
 Running on `http://127.0.0.1:5000/` と表示されます。<br> 
 ブラウザを開いて以下のURLにアクセスしてください。
 ``` 
- *http://127.0.0.1:5000 
+http://127.0.0.1:5000 
 ```
 <br>
 <br>
