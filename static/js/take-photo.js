@@ -88,7 +88,7 @@ async function capturePhoto() {
     const takePhotoButton = document.getElementById('take-photo');
   
     if (!takePhotoButton) {
-        console.error("❌ 撮影ボタンが見つかりません！");
+        console.error(" 撮影ボタンが見つかりません！");
         return;
     }
 
@@ -131,23 +131,22 @@ async function capturePhoto() {
         }
 
         let responseData = await response.json();
-        console.log("✅ Flask からのレスポンス:", responseData);
+        console.log(" Flask からのレスポンス:", responseData);
 
         
         if (responseData.redirect_url) {
-            console.log("🔄 画像送信成功！アニメーションへ移動");
+            console.log(" 画像送信成功。アニメーションへ移動");
 
-            // 🔥 4️⃣ アニメーションページ (`/animation`) に遷移
+            // アニメーションページ (`/animation`) に遷移
             window.location.assign('/animation');
 
-            // アニメーションページで 10 秒後にリザルトへ遷移する処理は Flask 側 or animation.js で制御
         } else {
-            console.error("❌ `redirect_url` がレスポンスに含まれていません！", responseData);
+            console.error(" `redirect_url` がレスポンスに含まれていません！", responseData);
             alert("エラー: リダイレクトURLが見つかりません。");
             takePhotoButton.disabled = false;
         }
     } catch (error) {
-        console.error("❌ ネットワークエラー:", error);
+        console.error(" ネットワークエラー:", error);
         alert("ネットワークエラーが発生しました。接続を確認してください。");
         takePhotoButton.disabled = false;
     }
