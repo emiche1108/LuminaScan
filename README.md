@@ -98,17 +98,17 @@ http://127.0.0.1:5000
 #### ▶ 機能一覧
 | トップページ |　サービス内容 |
 | ----------------  | ---------------- |
-| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" height="250" alt="3種メニュー">|
+| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" height="300" alt="3種メニュー">|
 |  サービス紹介　　| 3種類の診断メニュー |
 
 | 肌に関するアンケート |　診断方法の選択|
 | ----------------  | ----------------  |
-| <img src="static/readme-images/skinQ-image.jpg" width="350" height="250" alt="アンケート">| <img src="static/readme-images/choose-image.jpg" width="350" height="250" alt="方法選択">|
+| <img src="static/readme-images/skinQ-image.jpg" width="350" height="300" alt="アンケート">| <img src="static/readme-images/choose-image.jpg" width="350" height="300" alt="方法選択">|
 | 肌悩みの聞き取り画面。 | 画像アップロード or カメラ撮影どちらかを選べます。|
 
 | 写真撮影ページ |　カメラ起動画面・顔認証 |
 | ----------------  | ---------------- |
-| <img src="static/readme-images/takephoto-image1.jpg" width="350" height="250" alt="写真"> | [　PDF出力画面] |
+| <img src="static/readme-images/takephoto-image1.jpg" width="350" height="300" alt="写真"> | [　PDF出力画面] |
 | 写真撮影を選択。カメラ起動と撮影前の注意書きを表示。 | カメラ起動＋リアルタイムで顔認識システムの作動。 |
 
 | 結果ページ |　エラー画面 |
