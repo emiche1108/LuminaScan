@@ -98,7 +98,7 @@ http://127.0.0.1:5000
 #### ▶ 機能一覧
 | サービス内容 |　質問画面 |
 | ---- | ---- |
-| ![ログイン画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/loginpage.png) | ![ログイン成功画面](https://raw.githubusercontent.com/Mmmmjp/Vision_grid/main/images/loginsuccess-page.png) |
+| ![トップページ] | ![メニュー](readme-images/choose-image.png) |
 | ユーザーネームとパスワードによる認証機能を実装。 | ログイン後にランダムでポジティブなメッセージを表示する機能を実装（現在10種類のメッセージを用意）。 |
 
 | 計測方法の選択 |　顔認識とアップロード |
