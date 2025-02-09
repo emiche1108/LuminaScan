@@ -158,7 +158,7 @@ Running on `http://127.0.0.1:5000/` と表示されます。<br>
 
 
 ### ディレクトリー図<a id="directory-diagram"></a>
-'''
+```
 LuminaScan/
 ├── app.py             # Flaskアプリケーション（メイン処理）
 ├── process.py         # OpenCVを用いたオーバーレイ処理
@@ -210,7 +210,9 @@ LuminaScan/
 │   ├── fixed-images/   # 固定画像（ヘッダー・フッターなど）
 │   │   ├── header.jpeg
 │   │   └── footer.jpeg
-'''
+```
+
+
 
 
 
