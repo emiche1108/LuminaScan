@@ -103,7 +103,7 @@ http://127.0.0.1:5000
 
 | 肌に関するアンケート |　診断方法の選択|
 | ----------------  | ----------------  |
-| <img src="static/readme-images/skinQ-image.jpg" width="350" height="300" alt="アンケート">| <img src="static/readme-images/choose-image.jpg" width="350" height="300" alt="方法選択">|
+| <img src="static/readme-images/skinQ-image.jpg" width="350" height="300" alt="アンケート">| <img src="static/readme-images/choose-image.jpg" width="350" height="350" alt="方法選択">|
 | 肌悩みの聞き取り画面。 | 画像アップロード or カメラ撮影どちらかを選べます。|
 
 | 写真撮影ページ |　カメラ起動画面・顔認証 |
