@@ -47,35 +47,48 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         options: {
             responsive: true, // レスポンシブ対応
-            animation: {
-                duration: 7000 // チャートが広がる速度
-            },
-            plugins: {
-                legend: {
-                    display: false // 説明文を非表示
-                },
-                datalabels: {display: false, // チャート内部のスコアを非表示
+            maintainAspectRatio: false, //  アスペクト比を調整して左右のズレを防ぐ
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 20,
+                    bottom: 20
                 }
             },
-            scales: {
-                r: { // r（半径方向）のスケール設定
-                    suggestedMin: 50, // 最小値を50に設定
-                    suggestedMax: 100, // 最大値を100に設定
-                    ticks: { stepSize: 20, font: { size: 12 } }, // チャートのメモリ
-                    pointLabels: { 
-                        font: { size: 20, weight: "bold" }, // 「水分量」などの不穏とサイズ
-                        color: "#333",
-                        padding: 30, // スコアは外側に表示
-                        callback: function(value, index, values) {
-                            return scores[index] + "  " + value; // スコア → ラベルの順                            }
+            animation: {
+                duration: 7000 // チャートが広がる速度
+                },
+                plugins: {
+                    legend: {
+                        display: false // 説明文を非表示
+                        },
+                        datalabels: {display: false, // チャート内部のスコアを非表示
+                            }
+                        },
+                        scales: {
+                            r: { // r（半径方向）のスケール設定
+                            suggestedMin: 50, 
+                            suggestedMax: 100, 
+                            ticks: {
+                                stepSize: 20, 
+                                font:{
+                                size: 14,family: "'Shippori Mincho'", 
+                                }
+                        }, // チャートのメモリ
+                        pointLabels: { 
+                            font: { size: 18, family: "'Shippori Mincho'" ,weight: "bold" }, // 「水分量」などの不穏とサイズ
+                            color: "#333",
+                            padding: 20, // スコアは外側に表示
+                            callback: function(value, index, values) {
+                                return scores[index] + "  " + value; // スコア → ラベルの順                            }
+                            }
                         }
                     }
                 }
-            }
-        },
+            },
             plugins: [ChartDataLabels] // ここで ChartDataLabels を登録
-    });
-
+            }); 
     console.log("チャート描画完了！");
 });
           
