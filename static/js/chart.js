@@ -56,39 +56,37 @@ document.addEventListener("DOMContentLoaded", function() {
                     bottom: 20
                 }
             },
-            animation: {
-                duration: 7000 // チャートが広がる速度
+            animation: {duration: 7000 // チャートが広がる速度
+            },
+            plugins: {
+                legend: {display: false // 説明文を非表示
                 },
-                plugins: {
-                    legend: {
-                        display: false // 説明文を非表示
-                        },
-                        datalabels: {display: false, // チャート内部のスコアを非表示
+                datalabels: {display: false, // チャート内部のスコアを非表示
+                    }
+                },
+                scales: {
+                    r: { // r（半径方向）のスケール設定
+                        min: 0, //最小値を 0 に固定
+                        max: 100, //最大値を 100 に固定
+                        ticks: {
+                            values: [20, 40, 60, 80, 100],
+                            stepSize: 20,  // ⬅ 目盛りの間隔は20
+                            font:{size: 14,family: "'Shippori Mincho'", 
                             }
-                        },
-                        scales: {
-                            r: { // r（半径方向）のスケール設定
-                            suggestedMin: 50, 
-                            suggestedMax: 100, 
-                            ticks: {
-                                stepSize: 20, 
-                                font:{
-                                size: 14,family: "'Shippori Mincho'", 
-                                }
                         }, // チャートのメモリ
                         pointLabels: { 
                             font: { size: 18, family: "'Shippori Mincho'" ,weight: "bold" }, // 「水分量」などの不穏とサイズ
                             color: "#333",
                             padding: 20, // スコアは外側に表示
                             callback: function(value, index, values) {
-                                return scores[index] + "  " + value; // スコア → ラベルの順                            }
+                                return scores[index] + "  " + value; // スコア → ラベルの順 
                             }
                         }
                     }
                 }
             },
             plugins: [ChartDataLabels] // ここで ChartDataLabels を登録
-            }); 
+        });
     console.log("チャート描画完了！");
 });
           
