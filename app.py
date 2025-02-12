@@ -3,13 +3,13 @@ import os
 import base64  # 写真撮影。Base64エンコードとデコードを行う
 import json 
 import cv2
-from flask import jsonify  # JSONレスポンスを返すためにインポート
 from advice import save_survey_data, get_survey_data, get_advice #アドバイス
 from advice import ADVICE_DICT  # アドバイス辞書は advice.py にある
 from trimming import extract_face # トリミング
-import numpy as np
+from flask import Response #エラー時の警告文
 from skin_analysis import analyze_skin  # 解析結果
 #from process import process_image # オーバーレイ
+
 
 
 
@@ -106,12 +106,12 @@ def process_face(filepath):
 
     # まずはトリミング
     try:
-        print(f"🔍 トリミング開始: {filepath}") 
+        print(f" トリミング開始: {filepath}") 
         face_region = extract_face(filepath)  
 
         # **顔検出失敗時はJSONを返す**
         if face_region is None:
-            print("❌ [ERROR] 顔認識に失敗しました。")
+            print(" [ERROR] 顔認識に失敗しました。")
             return jsonify({"error": "顔が認識できませんでした"}), 400
         
         # 画像の保存処理
@@ -119,16 +119,16 @@ def process_face(filepath):
         success = cv2.imwrite(trimmed_path, face_region)
 
         if not success:
-            print(f"❌ 画像の保存に失敗しました: {trimmed_path}")
+            print(f" 画像の保存に失敗しました: {trimmed_path}")
             return jsonify({"error": "画像の保存に失敗しました"}), 500
         
         
         # **成功時に JSON を返す**
-        print(f"✅ トリミング画像の保存成功: {trimmed_path}")
+        print(f" トリミング画像の保存成功: {trimmed_path}")
         return jsonify({"message": "画像処理完了", "redirect_url": url_for('start_animation')})
 
     except Exception as e:
-        print(f"❌ トリミングエラー: {e}")
+        print(f" トリミングエラー: {e}")
         return jsonify({"error": "処理中にエラーが発生しました"}), 500
 
 
@@ -144,7 +144,7 @@ def take_photo_page():
     try:
         # **JSON データを取得**
         data = request.get_json()
-        print("📩 受信データ:", data) 
+        print(" 受信データ:", data) 
 
         if not data or "photoData" not in data:
             return jsonify({"error": "画像データが送信されていません"}), 400
@@ -160,9 +160,9 @@ def take_photo_page():
         if filepath is None:
             return jsonify({"error": "画像の保存に失敗しました"}), 500
 
-        # **process_face() のレスポンスを受け取る**
+        # **process_face() のレスポンスを受け取る
         response = process_face(filepath)
-        print("🔄 process_face のレスポンス:", response.get_json())
+        print(" process_face のレスポンス:", response.get_json())
 
         return response  # そのまま JSON を返す
 
@@ -184,7 +184,7 @@ def upload_photo_page():
         if 'file' not in request.files:
             print(" [ERROR] ファイルが送信されていません")
             return redirect(url_for('error_page', message="ファイルが送信されていません"))
-
+        
         file = request.files['file']
         if file.filename == '':
             print(" [ERROR] ファイルが選択されていません")
@@ -198,21 +198,64 @@ def upload_photo_page():
 
         # 顔認識 & 処理
         response = process_face(filepath)
+        print(f" `process_face()` のレスポンス: {response}")
 
-    # **エラー時はエラーページへリダイレクト**
-        if response.status_code == 400:
-            error_message = response.get_json().get("error", "顔認識に失敗しました。")
-            return redirect(url_for('error_page', message=error_message))
 
-        print("✅ 顔認識 & トリミング成功！アニメーションへリダイレクト")
+        # **もし `response` が `None` の場合**
+        if response is None:
+            print(" [ERROR] `process_face()` が `None` を返しました。")
+            return redirect(url_for('error_page', message="顔認識に失敗しました。"))
+
+        # **もし `response` がタプル (`message`, `status_code`) の場合**
+        if isinstance(response, tuple):
+            response_obj, status_code = response
+
+            # **もし `response_obj` が `Response` なら、get_json() でメッセージ取得**
+            if isinstance(response_obj, Response):
+                try:
+                    error_data = response_obj.get_json()
+                    error_message = error_data.get("error", "顔認識に失敗しました。")
+                    print(f" [ERROR] `process_face()` のエラーメッセージ: {error_message}")
+                    return redirect(url_for('error_page', message=error_message))
+                except Exception as e:
+                    print(f" [WARNING] `response_obj.get_json()` に失敗: {e}")
+                    return redirect(url_for('error_page', message="顔認識に失敗しました。"))
+
+            # **`response_obj` が `str` なら、そのままエラーメッセージとして扱う**
+            if isinstance(response_obj, str):
+                print(f" [ERROR] `process_face()` のエラーメッセージ: {response_obj}")
+                return redirect(url_for('error_page', message=response_obj))
+
+            print(f" [ERROR] 予期しないエラーレスポンス: {response_obj}")
+            return redirect(url_for('error_page', message="予期しないエラーが発生しました。"))
+
+        # **もし `response` が `Flask Response` の場合**
+        if isinstance(response, Response):
+            print(f" `process_face()` が `Response` オブジェクトを返しました。ステータスコード: {response.status_code}")
+
+            # **ステータスコード 400 の場合**
+            if response.status_code == 400:
+                try:
+                    error_data = response.get_json()
+                    error_message = error_data.get("error", "顔認識に失敗しました。")
+                    print(f" [ERROR] `process_face()` のエラーメッセージ: {error_message}")
+                    return redirect(url_for('error_page', message=error_message))
+                except Exception as e:
+                    print(f" [WARNING] `response.get_json()` に失敗しました: {e}")
+                    return redirect(url_for('error_page', message="顔認識に失敗しました。"))
+
+            # **ステータスコード 500 の場合**
+            if response.status_code == 500:
+                print(" [ERROR] サーバー内部エラーが発生")
+                return redirect(url_for('error_page', message="サーバー内部エラーが発生しました。"))
+
+        print(" 顔認識 & トリミング成功！アニメーションへリダイレクト")
         return redirect(url_for('start_animation'))
-    
+
     except Exception as e:
         print(f" [ERROR] サーバーエラー: {e}")
-        return redirect(url_for('error_page', message="サーバー内部エラーが発生しました。"))
+        return redirect(url_for('error_page', message=f"サーバー内部エラーが発生しました: {e}"))
     
-
-
 
 
 # エラー時のリンク
