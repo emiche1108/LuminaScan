@@ -161,7 +161,7 @@ http://127.0.0.1:5000
 LuminaScan/
 ├── app.py             # Flaskアプリケーション（メイン処理）
 ├── process.py         # OpenCVを用いたオーバーレイ処理
-├── trimming.py        # 顔のトリミング処理
+├── trimming.py        # トリミング・グレースケール処理
 ├── skin_analysis.py   # 肌の解析（重要）
 ├── advice.py          # アンケート結果処理
 
