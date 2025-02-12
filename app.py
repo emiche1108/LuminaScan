@@ -4,12 +4,10 @@ import base64  # 写真撮影。Base64エンコードとデコードを行う
 import json 
 import cv2
 from advice import save_survey_data, get_survey_data, get_advice #アドバイス
-from advice import ADVICE_DICT  # アドバイス辞書は advice.py にある
 from trimming import extract_face # トリミング
 from flask import Response #エラー時の警告文
 from skin_analysis import analyze_skin  # 解析結果
 #from process import process_image # オーバーレイ
-
 
 
 
@@ -21,10 +19,12 @@ app.secret_key = os.urandom(24)
 # 保存先フォルダ
 UPLOAD_FOLDER = "static/01uploads"
 TRIM_FOLDER = "static/02trimmed"
+GRAY_FOLDER = "static/03gray" 
 #PROCESSED_FOLDER = "static/03final"
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['TRIM_FOLDER'] = TRIM_FOLDER
+app.config['GRAY_FOLDER'] = GRAY_FOLDER 
 #app.config['PROCESSED_FOLDER'] = PROCESSED_FOLDER
 
 
@@ -97,11 +97,10 @@ def save_image(photo_data):
 
 
 
-
-
-# 共通設定（顔認識・トリミング。できない場合はエラー画面へ）
+# 共通設定（顔認識・トリミング・グレースケール。できない場合はエラー画面へ）
 def process_face(filepath):
     trimmed_path = os.path.join(TRIM_FOLDER, FILENAME)
+    gray_image_path = os.path.join(GRAY_FOLDER, "debug_gray_image.png")
     #processed_path = os.path.join(PROCESSED_FOLDER, FILENAME)
 
     # まずはトリミング
@@ -109,30 +108,39 @@ def process_face(filepath):
         print(f" トリミング開始: {filepath}") 
         face_region = extract_face(filepath)  
 
-        # **顔検出失敗時はJSONを返す**
+        # 顔検出失敗時はJSONを返す
         if face_region is None:
             print(" [ERROR] 顔認識に失敗しました。")
             return jsonify({"error": "顔が認識できませんでした"}), 400
         
-        # 画像の保存処理
-        os.makedirs(TRIM_FOLDER, exist_ok=True)
-        success = cv2.imwrite(trimmed_path, face_region)
 
-        if not success:
-            print(f" 画像の保存に失敗しました: {trimmed_path}")
-            return jsonify({"error": "画像の保存に失敗しました"}), 500
-        
-        
-        # **成功時に JSON を返す**
+        # `02trimmed/` にトリミング画像を保存
+        os.makedirs(TRIM_FOLDER, exist_ok=True)
+        success_trim = cv2.imwrite(trimmed_path, face_region)
+
+        if not success_trim:
+            print(f" トリミング画像の保存に失敗しました: {trimmed_path}")
+            return jsonify({"error": "トリミング画像の保存に失敗しました"}), 500
         print(f" トリミング画像の保存成功: {trimmed_path}")
+
+        # `03gray/` にグレースケール画像を保存
+        os.makedirs(GRAY_FOLDER, exist_ok=True)
+
+        # 顔画像をグレースケールに変換
+        gray_face = cv2.cvtColor(face_region, cv2.COLOR_BGR2GRAY)
+        # グレースケール画像の保存
+        success_gray = cv2.imwrite(gray_image_path, gray_face)
+        if not success_gray:
+            print(f"グレースケール画像の保存に失敗しました: {gray_image_path}")
+            return jsonify({"error": "グレースケール画像の保存に失敗しました"}), 500
+        print(f" グレースケール画像の保存成功: {gray_image_path}")
+
         return jsonify({"message": "画像処理完了", "redirect_url": url_for('start_animation')})
 
     except Exception as e:
-        print(f" トリミングエラー: {e}")
+        print(f" [ERROR] トリミングエラー: {e}")
         return jsonify({"error": "処理中にエラーが発生しました"}), 500
-
-
-
+    
 
 
 # ...写真撮影を選択した場合
@@ -163,10 +171,8 @@ def take_photo_page():
         # **process_face() のレスポンスを受け取る
         response = process_face(filepath)
         print(" process_face のレスポンス:", response.get_json())
-
         return response  # そのまま JSON を返す
 
-    
     except Exception as e:
             print(f" サーバーエラー: {e}")
             return jsonify({"error": "サーバー内部エラーが発生しました"}), 500
@@ -179,7 +185,6 @@ def upload_photo_page():
     if request.method == 'GET':
         return render_template('upload_photo.html')
     
-
     try:
         if 'file' not in request.files:
             print(" [ERROR] ファイルが送信されていません")
@@ -220,15 +225,15 @@ def upload_photo_page():
                 except Exception as e:
                     print(f" [WARNING] `response_obj.get_json()` に失敗: {e}")
                     return redirect(url_for('error_page', message="顔認識に失敗しました。"))
-
-            # **`response_obj` が `str` なら、そのままエラーメッセージとして扱う**
+                
+                # **`response_obj` が `str` なら、そのままエラーメッセージとして扱う**
             if isinstance(response_obj, str):
                 print(f" [ERROR] `process_face()` のエラーメッセージ: {response_obj}")
                 return redirect(url_for('error_page', message=response_obj))
 
             print(f" [ERROR] 予期しないエラーレスポンス: {response_obj}")
             return redirect(url_for('error_page', message="予期しないエラーが発生しました。"))
-
+        
         # **もし `response` が `Flask Response` の場合**
         if isinstance(response, Response):
             print(f" `process_face()` が `Response` オブジェクトを返しました。ステータスコード: {response.status_code}")
