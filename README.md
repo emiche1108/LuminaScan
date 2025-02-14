@@ -81,7 +81,7 @@ pip install flask opencv-python-headless pillow numpy
 
 #### 5. Flask アプリの起動  
 ```
-$ python3 app.py
+python3 app.py
 ```
 
 #### 6.成功すると…
