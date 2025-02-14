@@ -487,6 +487,16 @@ footer img {
   display: none;
 }
 
+#advice-title{
+  color:#5d535e; 
+  font-size: 30px;
+}
+
+.advice {
+  margin-bottom: 40px; 
+}
+
+
 /*　説明文全体の配置 */
 .skin-description {
   display: flex;
@@ -527,7 +537,23 @@ footer img {
   max-width: 600px; /* 文章の横幅を制限して見やすく */
 }
 
+/* 共通のタイトルデザイン */
+.skin-item h3 {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 3px solid;  /* 下線の太さを統一 */
+}
 
+/* 下線の色設定 */
+.skin-item:nth-child(1) h3 { border-color: #7EBBCC; }  /* 水分量（青） */
+.skin-item:nth-child(2) h3 { border-color: #8FBB6B; }  /* 皮脂バランス（緑） */
+.skin-item:nth-child(3) h3 { border-color: #FFC858; }  /* 明るさ（黄色） */
+.skin-item:nth-child(4) h3 { border-color: #5D535E; }  /* シミ（茶色） */
+.skin-item:nth-child(5) h3 { border-color: #E29EA6; }  /* シワ（ピンク） */
+.skin-item:nth-child(6) h3 { border-color: #6495ED; }  /* キメ（青） */
+.skin-item:nth-child(7) h3 { border-color: #D4A017; }  /* くま（ゴールド） */
+.skin-item:nth-child(8) h3 { border-color: #FF69B4; }  /* 赤み（ホットピンク） */
+.skin-item:nth-child(9) h3 { border-color: #808080; }  /* 毛穴（グレー） */
 
 
 
