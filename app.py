@@ -3,10 +3,10 @@ import os
 import base64  # 写真撮影。Base64エンコードとデコードを行う
 import json 
 import cv2
-from advice import save_survey_data, get_survey_data, get_advice #アドバイス
 from trimming import extract_face # トリミング
 from flask import Response #エラー時の警告文
 from skin_analysis import analyze_skin  # 解析結果
+from advice import save_survey_data, get_survey_data, get_advice, generate_result_message  #アドバイス
 #from process import process_image # オーバーレイ
 
 
@@ -60,7 +60,12 @@ def skinQ():
     if request.method == 'POST':
         age = request.form.get('age')
         gender = request.form.get('gender')
-        skin_issues = request.form.getlist('skin_issues') or ['なし']
+        skin_issues = request.form.getlist('skin_issues')
+
+        if not skin_issues:  
+            skin_issues = ["なし"]
+        print(f" [DEBUG] 受け取った肌悩み: {skin_issues}")
+
 
         # アンケート結果を保存
         save_survey_data(age, gender, skin_issues)
@@ -100,7 +105,7 @@ def save_image(photo_data):
 # 共通設定（顔認識・トリミング・グレースケール。できない場合はエラー画面へ）
 def process_face(filepath):
     trimmed_path = os.path.join(TRIM_FOLDER, FILENAME)
-    gray_image_path = os.path.join(GRAY_FOLDER, "debug_gray_image.png")
+    gray_image_path = os.path.join(GRAY_FOLDER, FILENAME)
     #processed_path = os.path.join(PROCESSED_FOLDER, FILENAME)
 
     # まずはトリミング
@@ -150,7 +155,7 @@ def take_photo_page():
         return render_template('take_photo.html')
     
     try:
-        # **JSON データを取得**
+        # JSON データを取得
         data = request.get_json()
         print(" 受信データ:", data) 
 
@@ -160,10 +165,6 @@ def take_photo_page():
         # 画像保存
         photo_data = base64.b64decode(data["photoData"].split(",")[1])
         filepath = save_image(photo_data)
-
-        if filepath is None:
-            return jsonify({"error": "画像の保存に失敗しました"}), 500
-        
 
         if filepath is None:
             return jsonify({"error": "画像の保存に失敗しました"}), 500
@@ -331,38 +332,41 @@ def result():
     #processed_image_url = url_for('static', filename=f'03final/{filename}')
     #print(f" Flask に渡す `processed_image` の URL → {processed_image_url}")  
 
+     
 
+    # **アンケートデータを取得**
+    age, gender, skin_issues = get_survey_data()
+    print(f" [DEBUG] `get_survey_data()` の結果: {age}, {gender}, {skin_issues}")
 
-     # **アンケートデータを取得（定義）**
-    age, gender, skin_issues = get_survey_data()  
+    if not skin_issues:
+        print("⚠️ [WARNING] `skin_issues` が空です！")
+
 
     # **解析データを取得**
-    analysis_result = analyze_skin(trimmed_path) 
-    print(f"[DEBUG] Flask に渡すデータ: {analysis_result}")
-
-    analysis_data = analysis_result.get("scores", {})
+    analysis_result = analyze_skin(trimmed_path)
     print(f"[DEBUG] Flask に渡すデータ: {analysis_result}")
 
     if "scores" not in analysis_result:
         return redirect(url_for('error_page', message="解析に失敗しました"))
-    
-    #`result.html` に渡す**
-    analysis_data = analysis_result["scores"] 
+
+    analysis_data = analysis_result["scores"]
+
 
     # **アドバイスを取得**
     advice_list = get_advice(skin_issues)
+    
+
+    # **結果メッセージの生成（advice.py に移動）**
+    result_message = generate_result_message(skin_issues, analysis_data)
 
 
     return render_template(
         'result.html',
         filename=filename,
-        # original_image=url_for('static', filename=f'01uploads/{filename}'),
-        # trimming_image=url_for('static', filename=f'02trimmed/{filename}'),
-        # processed_image=processed_image_url, 
-
-        advice=advice_list ,
+        advice=advice_list,
+        result_message=result_message,
         age=age, gender=gender, skin_issues=skin_issues,
-        
+
         moisture_level=analysis_data.get('水分量', 'N/A'),
         oil_balance=analysis_data.get('皮脂バランス', 'N/A'),
         brightness=analysis_data.get('明るさ', 'N/A'),
