@@ -69,8 +69,8 @@ cd ~/Desktop/LuminaScan
 
 #### 3. 仮想環境のセットアップ（venv）
 ```
-$ python -m venv venv
-$ source venv/bin/activate    # Windowsの場合は `venv\Scripts\activate`
+python -m venv venv
+source venv/bin/activate    # Windowsの場合は `venv\Scripts\activate`
 ```
 
 #### 4. 必要なライブラリのインストール
