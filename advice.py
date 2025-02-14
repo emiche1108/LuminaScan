@@ -5,7 +5,7 @@ from flask import session
 def save_survey_data(age, gender, skin_issues):
     print(f"[DEBUG] 保存する `skin_issues`: {skin_issues}")
 
-    # もし `skin_issues` がカンマ区切りの文字列だったらリスト化する
+    # `skin_issues` がカンマ区切りの文字列だったらリスト化する
     if isinstance(skin_issues, str):
         skin_issues = skin_issues.split(",")
     
@@ -27,7 +27,7 @@ def get_survey_data():
     print(f" [DEBUG] get_survey_data() の結果: age={age}, gender={gender}, skin_issues={skin_issues}")
 
 
-    # もし `skin_issues` がカンマ区切りの文字列だったらリスト化する
+    # `skin_issues` がカンマ区切りの文字列だったらリスト化する
     if isinstance(skin_issues, list):
         skin_issues = [issue.strip() for sublist in skin_issues for issue in sublist.split(",")]
     else:
@@ -40,7 +40,7 @@ def get_survey_data():
     return age, gender, skin_issues
 
 
-# **アドバイス辞書**
+# **アドバイスリスト**
 ADVICE_DICT = {
     "乾燥": "肌のうるおいを保つために、保湿ケアを徹底しましょう。",
     "肌荒れ": "バリア機能を守るため、低刺激のスキンケアを選びましょう。",
@@ -55,18 +55,18 @@ ADVICE_DICT = {
     "なし": "今のスキンケアを継続しましょう！"
 }
 
-# **アドバイス取得関数**
+# アドバイス取得関数
 def get_advice(skin_issues):
     print(f" [DEBUG] `get_advice()` に渡された `skin_issues`: {skin_issues}")
     
-    # もし `,` が残っていたら `split()` してリスト化
+    #  `,` が残っていたら `split()` してリスト化
     if any("," in issue for issue in skin_issues):  
         print(" [ERROR] `skin_issues` に `,` が残っている！`split()` されていない！")
         skin_issues = [issue.strip() for sublist in skin_issues for issue in sublist.split(",")]
         print(f" [DEBUG] `split()` 修正後の `skin_issues`: {skin_issues}")
     
     if not skin_issues or "なし" in skin_issues:
-        print("⚠️ [WARNING] `skin_issues` が空 or `なし` が含まれている → デフォルトメッセージを表示！")
+        print(" [WARNING] `skin_issues` が空 or `なし` が含まれている → デフォルトメッセージを表示！")
         return ["特にアドバイスはありません。"]
 
     advice_list = [ADVICE_DICT.get(issue, "特にアドバイスはありません") for issue in skin_issues]
@@ -81,7 +81,7 @@ def get_advice(skin_issues):
 # 結果メッセージの生成
 def generate_result_message(skin_issues, analysis_data):
     
-    # **肌悩みメッセージ**
+    # 肌悩みメッセージ
     if len(skin_issues) == 1:
         concerns_text = f"あなたは「{skin_issues[0]}」が気になるようですね。\n"
     elif len(skin_issues) >= 2:
@@ -89,7 +89,7 @@ def generate_result_message(skin_issues, analysis_data):
     else:
         concerns_text = "あなたは特に気になる肌悩みはないようですね。\n"
 
-    # **スコア別 肌状態**
+    # スコア別 肌状態
     avg_score = sum(analysis_data.values()) / len(analysis_data) if analysis_data else 50  # デフォルト50
     if avg_score >= 80:
         skin_status = "肌状態は非常に良好です。この調子でスキンケアを続けましょう！\n"
