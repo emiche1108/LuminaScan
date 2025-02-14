@@ -114,7 +114,7 @@ http://127.0.0.1:5000
 
 | 結果ページ |　エラー画面 |
 | ---------------- | ---------------- |
-|<img src="static/readme-images/report-image1.jpg" width="350" height="300" alt="チャート図"> |<img src="static/readme-images/error-image.jpg" width="350" height="300" alt="エラーページ"> |
+|<img src="static/readme-images/report-image1.jpg" width="350" height="300" alt="チャート図">|<img src="static/readme-images/error-image.jpg" width="350" height="300" alt="エラーページ"> |
 | 肌状態の採点・チャート図の表示・アドバイスの抽出表示を実装。 |顔認識が出来ないものや、トリミング失敗など<br>エラー発生時に使用するページの実装 |
 
 
