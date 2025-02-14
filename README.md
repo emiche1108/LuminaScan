@@ -100,23 +100,23 @@ http://127.0.0.1:5000
 
 | トップページ | サービス内容 |
 | ---------------- | ---------------- |
-| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="250" alt="3種メニュー"> |
+| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" alt="3種メニュー"> |
 | サービス紹介 | 3種類の診断メニュー |
 
 | 肌に関するアンケート | 診断方法の選択 |
 | ---------------- | ---------------- |
-| <img src="static/readme-images/skinQ-image.jpg" width="250" alt="アンケート"> | <img src="static/readme-images/choose-image.jpg" width="250" alt="方法選択"> |
+| <img src="static/readme-images/skinQ-image.jpg" width="350" alt="アンケート"> | <img src="static/readme-images/choose-image.jpg" width="350" alt="方法選択"> |
 | 肌悩みの聞き取り機能を実装。 | **画像アップロード or カメラ撮影**<br>2種類の選択肢を実装。 |
 
 | 写真撮影ページ | カメラ起動画面・顔認証 |
 | ---------------- | ---------------- |
-| <img src="static/readme-images/takephoto-image1.jpg" width="250" alt="写真"> | [PDF出力画面] |
-| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する流れを実装。 | カメラ起動＋リアルタイムで顔認識システムを実装。 |
+| <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="写真"> | [PDF出力画面] |
+| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで<br>顔認識システムを実装。 |
 
 | 結果ページ | エラー画面 |
 | ---------------- | ---------------- |
-| <img src="static/readme-images/report-image1.jpg" width="250" alt="チャート図"> | <img src="static/readme-images/report-image2.jpg" width="250" alt="詳細結果"> |
-| 肌状態の採点・チャート図を表示<br>アドバイスの抽出表示を実装。 |  |
+| <img src="static/readme-images/report-image1.jpg" width="230" alt="チャート図"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="詳細結果"> |
+| 肌状態の採点・チャート図を表示<br>アドバイスの抽出表示を実装。 |                                   |
 
 
 #### ▶ 機能サンプル動画
