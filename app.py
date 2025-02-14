@@ -296,7 +296,7 @@ def analyze():
     # `analyze_skin()` を呼び出す
     results = analyze_skin(image_path)
 
-    # 解析後の画像を保存（仮の処理）
+    # 解析後の画像を保存
     #processed_image_path = os.path.join(PROCESSED_FOLDER, file.filename)
     #cv2.imwrite(processed_image_path, cv2.imread(image_path))
 
@@ -310,7 +310,7 @@ def analyze():
 # アニメーション
 @app.route('/animation')
 def start_animation():
-    print("🎬 アニメーションページを表示")  
+    print("アニメーションページを表示")  
     return render_template('animation.html')  
 
 
@@ -339,7 +339,7 @@ def result():
     print(f" [DEBUG] `get_survey_data()` の結果: {age}, {gender}, {skin_issues}")
 
     if not skin_issues:
-        print("⚠️ [WARNING] `skin_issues` が空です！")
+        print("⚠[WARNING] `skin_issues` が空です！")
 
 
     # **解析データを取得**
