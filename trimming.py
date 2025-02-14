@@ -42,7 +42,7 @@ def extract_face(image_path):
     print(f" `debug_gray_image.png` にグレースケール画像を保存しました。顔が適切に映っているか確認してください。")
 
     # **顔の検出**
-    print("🔍 顔検出を実行中...")
+    print("顔検出を実行中...")
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(100, 100))
     
     if len(faces) == 0:
@@ -65,7 +65,7 @@ def extract_face(image_path):
 
     # **データ型を uint8 に統一**
     if face_region.dtype != np.uint8:
-        print(f"⚠ [WARNING] `face_region` の dtype が {face_region.dtype} のため、uint8 に変換します")
+        print(f" [WARNING] `face_region` の dtype が {face_region.dtype} のため、uint8 に変換します")
         face_region = face_region.astype(np.uint8)
 
     print(f" 顔のトリミング成功！サイズ: {face_region.shape}")
