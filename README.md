@@ -115,7 +115,7 @@ http://127.0.0.1:5000
 
 | 結果ページ | エラー画面 |
 | ---------------- | ---------------- |
-| <img src="static/readme-images/report-image1.jpg" width="230" alt="チャート図"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="詳細結果"> |
+| <img src="static/readme-images/report-image1.jpg" width="350" alt="チャート図"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="詳細結果"> |
 | 肌状態の採点・チャート図を表示<br>アドバイスの抽出表示を実装。 |                                   |
 
 
