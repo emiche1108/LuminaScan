@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const ageInput = document.getElementById("age");
 
     if (!dropdownContainer || !dropdownBtn || !dropdownList || !ageInput) {
-        console.error(" 必要な要素が見つかりません。HTMLを確認してください。");
+        console.error("⚠️ 必要な要素が見つかりません。HTMLを確認してください。");
         return;
     }
 
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    // 肌悩みボタン（最大2つ選択可能）
+    //  肌悩みボタン（最大2つ選択可能）
     const skinButtons = document.querySelectorAll(".skin-btn");
     const skinInput = document.getElementById("skinIssues");
     let selectedValues = [];
