@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     bottom: 20
                 }
             },
-            animation: {duration: 7000 // チャートが広がる速度
+            animation: {duration: 5000 // チャートが広がる速度
             },
             plugins: {
                 legend: {display: false // 説明文を非表示
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         max: 100, //最大値を 100 に固定
                         ticks: {
                             values: [20, 40, 60, 80, 100],
-                            stepSize: 20,  // ⬅ 目盛りの間隔は20
+                            stepSize: 20,  // 目盛りの間隔は20
                             font:{size: 14,family: "'Shippori Mincho'", 
                             }
                         }, // チャートのメモリ
