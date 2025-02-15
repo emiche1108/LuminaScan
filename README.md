@@ -1,6 +1,6 @@
 <div align="center">
    <picture>
-   https://raw.githubusercontent.com/emiche1108/skincheck/main/readme_assets/ファイル名.png
+   https://raw.githubusercontent.com/emiche1108/skincheck/main/readme_assets/.png
    </picture>
 </div>
 
@@ -143,7 +143,7 @@ http://127.0.0.1:5000
 
 
 ### 制作期間
-### 2025年1月中旬〜2月中旬までの約30日間（README記入含む）<br>
+#### 2025年1月中旬〜2月中旬までの約30日間（README記入含む）<br>
 
 
 ### 今後の目標
