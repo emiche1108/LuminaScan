@@ -162,9 +162,8 @@ http://127.0.0.1:5000
 
 
 ### 画面遷移図<a id="screen-flow"></a>
-<img src="static/readme-images/UserFrow.png" width="550" alt="画面遷移図">
-<br>
-<br>
+<img src="static/readme-images/UserFrow.png" width="650" alt="画面遷移図">
+
 
 
 ### ディレクトリー図<a id="directory-diagram"></a>
