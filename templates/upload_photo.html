@@ -12,13 +12,6 @@
     <!-- Googleフォント -->
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
-
-
-    <!-- faceAPIを読み込む -->
-    <script defer src="{{ url_for('static', filename='js/face-api.min.js') }}"></script>
-    
-   <!-- javascriptを読み込む -->
-    <script src="{{ url_for('static', filename='js/upload-photo.js') }}" defer></script>
 </head>
 
 
@@ -36,17 +29,13 @@
                 <p class="step">STEP 3/3</p>
             </div>
 
-            <form id="upload-form" enctype="multipart/form-data">
+            <form id="upload-form" action="{{ url_for('upload_photo_page') }}" method="post" enctype="multipart/form-data" autocomplete="off">
                 <label for="file-upload" class="upload-label">画像ファイルを選択:</label>
                 <input type="file" id="file-upload" name="file" accept="image/png, image/jpeg, image/jpg, image/gif" required>
-
-                <!-- エラーメッセージ表示用 -->
-                 <p id="error-message2" style="display: none;"></p>
-
-                <!-- アップロードボタン -->
-                <button id="upload-button" type="button" class="button upload">アップロード</button>
+                <button type="submit" class="button upload">アップロード</button>
             </form>
-
+                                   
+            
             <div class="notice-text">
                 <p>対応形式: PNG, JPG, JPEG, GIF</p>
                 <p>高解像度の画像を推奨します。解像度が高いほど正確な解析が行えます。</p>
@@ -61,13 +50,10 @@
     <footer id="footer">
         <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
         <div id="Copyright">
-            &copy; 2025 ビューティーチェックアプリ
+            &copy; 2025 LuminaScan - All Rights Reserved.
         </div>
     </footer>
 
-
-    <!--  `upload-photo.js` の読み込む -->
-    <script src="{{ url_for('static', filename='js/upload-photo.js') }}"></script>
-
 </body>
+
 </html>
