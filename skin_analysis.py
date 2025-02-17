@@ -67,7 +67,7 @@ def analyze_skin(image_path):
     contrast_map = cv2.absdiff(gray, cv2.GaussianBlur(gray, (5,5), 0))
 
     # シミスコア
-    spots_score = normalize(np.mean(color_diff) * 0.6 + np.mean(contrast_map) * 0.4, 5, 30, inverse=True)
+    spots_score = normalize(np.mean(color_diff) * 0.6 + np.mean(contrast_map) * 0.4, 1, 30, inverse=True)
 
 
 
