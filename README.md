@@ -107,7 +107,7 @@ http://127.0.0.1:5000
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="写真"> | [PDF出力画面] |
 | カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで<br>顔認識システムを実装。 |
 
-| 結果ページ | エラー画面 |
+| 結果ページ | 7項目の説明|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/report-image1.jpg" width="350" alt="チャート図"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="詳細結果"> |
 | 肌状態の採点・チャート図を表示<br>アドバイスの抽出表示を実装。 |                                   |
