@@ -105,7 +105,7 @@ http://127.0.0.1:5000
 | 写真撮影ページ | カメラ起動画面・顔認証 |
 | ---------------- | ---------------- |
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="写真"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="写真"> |
-| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで<br>顔認識システムを実装。<br>詳細な手順は、動画で解説。 |
+| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで顔認識システムを実装。<br>詳細な手順は、動画で解説。 |
 
 | 結果ページ | 7項目の説明|
 | ---------------- | ---------------- |
@@ -116,9 +116,9 @@ http://127.0.0.1:5000
 #### ▶ 機能サンプル動画
 | サンプル動画                          | 説明                      |
 |---------------------------------------|---------------------------|
-| <img src="sample_videos/VisionGrid_sample_myPage.gif" width="300" height="200" alt="顔認証"> | カメラ撮影時のリアルタイム顔認証 |
-| <img src="sample_videos/VisionGrid_sample_MandalaCreation.gif" width="300" height="200" alt="アニメーション"> | 解析中のアニメーション |
-| <img src="sample_videos/VisionGrid_sample_MandalaCreation.gif" width="300" height="200" alt="アニメーション"> | 診断結果 |
+| <img src="static/readme-images/report-image1.jpg" width="300" height="200" alt="顔認証"> | 肌診断→アンケート→写真撮影までの流れ |
+| <img src="static/readme-images/takephoto.mov"　width="400" alt="カメラ起動・顔認識"> | カメラ撮影時のリアルタイム顔認証 |
+| <img src="static/readme-images/report-image1.jpg" width="300" height="200" alt="アニメーション"> | 診断結果の表示と説明 |
 
 <br>
 
