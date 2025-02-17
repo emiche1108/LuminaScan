@@ -117,7 +117,7 @@ http://127.0.0.1:5000
 | サンプル動画                          | 説明                      |
 |---------------------------------------|---------------------------|
 | <img src="static/readme-images/report-image1.jpg" width="300" height="200" alt="顔認証"> | 肌診断→アンケート→写真撮影までの流れ |
-| <img src="static/readme-images/takephoto.gif" width="400" alt="カメラ起動・顔認識"> | カメラ撮影時のリアルタイム顔認証 |
+| <img src="static/readme-images/takephoto.mp4" width="400" alt="カメラ起動・顔認識"> | カメラ撮影時のリアルタイム顔認証 |
 | <img src="static/readme-images/report-image1.jpg" width="300" height="200" alt="アニメーション"> | 診断結果の表示と説明 |
 
 <br>
