@@ -104,8 +104,8 @@ http://127.0.0.1:5000
 
 | 写真撮影ページ | カメラ起動画面・顔認証 |
 | ---------------- | ---------------- |
-| <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="写真"> | <img src="static/readme-images/takephoto-image2.jpg" width="300" alt="写真"> |
-| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで<br>顔認識システムを実装。 |
+| <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="写真"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="写真"> |
+| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで<br>顔認識システムを実装。<br>詳細な手順は、動画で解説。 |
 
 | 結果ページ | 7項目の説明|
 | ---------------- | ---------------- |
