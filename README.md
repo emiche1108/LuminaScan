@@ -1,3 +1,10 @@
+<div align="center">
+<picture>
+https://raw.githubusercontent.com/emiche1108/skincheck/main/readme_assets/logo.png
+</picture>
+</div>
+
+
 
 ### 目次
 - [💄アプリケーションのご説明](#app-description)
