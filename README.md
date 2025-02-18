@@ -1,7 +1,7 @@
 <div align="center">
-<picture>
-https://raw.githubusercontent.com/emiche1108/skincheck/main/readme_assets/logo.png
-</picture>
+  <picture>
+    <img src="https://raw.githubusercontent.com/emiche1108/skincheck/main/static/readme-images/logo.png" width="200" alt="LuminaScan Logo"
+  </picture>
 </div>
 
 
