@@ -124,7 +124,7 @@ http://127.0.0.1:5000
 | サンプル動画                          | 説明                      |
 |---------------------------------------|---------------------------|
 |<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/takephoto.gif" width="300" height="200" alt="リアルタイム顔認証">|顔認識の流れ<br>face-api.jsの学習済みモデルを使用し、顔認識を実装<br><br>⚫︎ssdMobilenetv1 → カメラ映像から顔の位置を特定<br>⚫︎faceLandmark68Net → 目・鼻・口・輪郭など68箇所の特徴点を検出<br>⚫︎faceRecognitionNet → 類似度スコアを算出、特定の値以上でカメラ撮影を許可<br>|
-|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/report.gif" width="300" height="200" alt="アニメーション＆アドバイス表示">|肌採点の流れ<br><br>画像解析技術を用い、肌状態を数値化。<br>⚫︎画像解析 → 明度・彩度・色のバランスを分析し、肌の特徴を抽出<br>⚫︎特徴評価 → シミ・シワ・くま・水分量などを画像処理で測定し、数値化<br>⚫︎スコア算出 → 各評価を統合し、100点満点で肌状態を採点<br>|
+|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/report.gif" width="300" height="200" alt="アニメーション＆アドバイス表示">|肌採点の流れ<br>画像解析技術を用い、肌状態を数値化。<br><br>⚫︎画像解析 → 明度・彩度・色のバランスを分析し、肌の特徴を抽出<br>⚫︎特徴評価 → シミ・シワ・くま・水分量などを画像処理で測定し、数値化<br>⚫︎スコア算出 → 各評価を統合し、100点満点で肌状態を採点<br>|
 
 <br>
 
