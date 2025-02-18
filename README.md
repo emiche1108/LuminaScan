@@ -1,6 +1,6 @@
 <div align="center">
   <picture>
-    <img src="https://raw.githubusercontent.com/emiche1108/skincheck/main/static/readme-images/logo.png" width="200" alt="LuminaScan Logo"
+    <img src="https://raw.githubusercontent.com/emiche1108/LuminaScan/main/static/readme-images/logo.png" width="200" alt="LuminaScan Logo"
   </picture>
 </div>
 
