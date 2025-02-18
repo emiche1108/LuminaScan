@@ -116,9 +116,9 @@ http://127.0.0.1:5000
 #### ▶ 機能サンプル動画
 | サンプル動画                          | 説明                      |
 |---------------------------------------|---------------------------|
-| <img src="static/readme-images/report-image1.jpg" width="300" height="200" alt="顔認証"> | 肌診断→アンケート→写真撮影までの流れ |
-| <img src="static/readme-images/takephoto.mp4"> | カメラ撮影時のリアルタイム顔認証 |
-| <img src="static/readme-images/report.mp4"> | アニメーション→チャート図→アドバイス表示の流れ |
+| 　　　　　　　　　　　　　　　　　　　　　　　| 肌診断→アンケート→写真撮影までの流れ |
+|<img src="https://github.com/emiche1108/LuminaScan/main/static/readme-images/takephoto.gif" width="300" height="200" alt="リアルタイム顔認証">| カメラ撮影時のリアルタイム顔認証 |
+|<img src="https://github.com/emiche1108/LuminaScan/main/static/readme-images/report.gif" width="300" height="200" alt="アニメーション＆アドバイス表示">| アニメーション→チャート図→アドバイス表示の流れ |
 
 <br>
 
