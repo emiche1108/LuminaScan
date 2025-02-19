@@ -5,7 +5,7 @@
   <br>
 
   <center>
-    <a href="README_ja.md">
+    <a href="README.md">
       <img src="https://img.shields.io/badge/Japanese-🇯🇵-red?style=for-the-badge&logo=google-translate">
     </a>
     <a href="README_en.md">
