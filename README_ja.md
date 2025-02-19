@@ -5,9 +5,6 @@
 </div>
 
 
-[🇯🇵 日本語](README_ja.md) | [🇺🇸 English](README_en.md)
-
----
 
 ### 目次
 - [💄アプリケーションのご説明](#app-description)
@@ -105,7 +102,7 @@ http://127.0.0.1:5000
 | トップページ | サービス内容 |
 | ---------------- | ---------------- |
 | [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" alt="3種メニュー"> |
-| サービス内容の説明文を実装。 | 3種類の診断メニューのスタートボタンを実装。 |
+| サービス紹介 | 3種類の診断メニュー |
 
 | 肌に関するアンケート | 診断方法の選択 |
 | ---------------- | ---------------- |
@@ -115,19 +112,19 @@ http://127.0.0.1:5000
 | 写真撮影ページ | カメラ起動画面・顔認証 |
 | ---------------- | ---------------- |
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="写真"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="写真"> |
-| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで顔認識システムを実装。<br>詳細はサンプル動画よりご覧下さい。 |
+| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで顔認識システムを実装。<br>詳細はサンプル動画よりご覧下さい |
 
 | 結果ページ | 7項目の説明|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/report-image1.jpg" width="350" alt="チャート図"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="詳細結果"> |
-| 肌状態を採点し、7つの指標をもとに<br>レーダーチャートで視覚化する機能を実装。| アンケート結果と組み合わせて<br>適切なスキンケアアドバイスを表示|
+| 肌状態の採点・チャート図を表示<br>アドバイスの抽出表示を実装。 |                                   |
 
 
 #### ▶ 機能サンプル動画
 | サンプル動画                          | 説明                      |
 |---------------------------------------|---------------------------|
-|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/takephoto.gif" width="300" height="200" alt="リアルタイム顔認証">|【顔認識の流れ】<br>face-api.jsの学習済みモデルを使用し、顔認識を行う。<br><br>⚫︎ssdMobilenetv1 → カメラ映像から顔の位置を特定<br>⚫︎faceLandmark68Net → 目・鼻・口・輪郭など68箇所の特徴点を検出<br>⚫︎faceRecognitionNet → 類似度スコアを算出、特定の値以上でカメラ撮影を許可<br>|
-|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/report.gif" width="300" height="200" alt="アニメーション＆アドバイス表示">|【肌採点の流れ】<br>画像解析技術を用い、肌状態を数値化。<br><br>⚫︎画像解析 → 明度・彩度・色のバランスを分析し、肌の特徴を抽出<br>⚫︎特徴評価 → シミ・シワ・くま・水分量などを画像処理で測定し、数値化<br>⚫︎スコア算出 → 各評価を統合し、100点満点で肌状態を採点<br>|
+|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/takephoto.gif" width="300" height="200" alt="リアルタイム顔認証">|face-api.jsの学習済みモデルを使用し、顔認識を実装しています。<br>⚫︎ssdMobilenetv1 → カメラ映像から顔の位置を特定<br>⚫︎faceLandmark68Net → 目・鼻・口・輪郭など 68箇所の特徴点を検出<br>⚫︎faceRecognitionNet → 類似度スコアを算出。特定の値以上でカメラ撮影を許可<br>|
+|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/report.gif" width="300" height="200" alt="アニメーション＆アドバイス表示">|肌採点の流れ（端的に3つのステップでご説明）<br>⚫︎画像解析 → 明度・彩度・色のバランスを分析し、肌の特徴を抽出<br>⚫︎特徴評価 → シミ・シワ・くま・水分量などを画像処理で測定し数値化<br>⚫︎スコア算出 → 各評価を統合し、100点満点で肌状態を採点|
 
 <br>
 
