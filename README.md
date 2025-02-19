@@ -5,13 +5,15 @@
   
   <br> 
 
+  <div style="text-align: center;">
   <a href="README_ja.md">
-    <img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-Japanese-red?style=for-the-badge&logo=google-translate">
+    <img src="https://img.shields.io/badge/Japanese-🇯🇵-red?style=for-the-badge&logo=google-translate">
   </a>
   <a href="README_en.md">
     <img src="https://img.shields.io/badge/English-🇺🇸-blue?style=for-the-badge&logo=google-translate">
   </a>
 </div>
+
 
 
 
