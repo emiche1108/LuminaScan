@@ -1,8 +1,10 @@
-<div align="center">
+<div style="text-align: center;">
   <picture>
-    <img src="https://raw.githubusercontent.com/emiche1108/LuminaScan/main/static/readme-images/logo.png" width="200" alt="LuminaScan Logo"
+    <img src="https://raw.githubusercontent.com/emiche1108/LuminaScan/main/static/readme-images/logo.png" width="200" alt="LuminaScan Logo">
   </picture>
   
+  <br> 
+
   <a href="README_ja.md">
     <img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-Japanese-red?style=for-the-badge&logo=google-translate">
   </a>
