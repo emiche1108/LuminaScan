@@ -1,17 +1,17 @@
 <div style="text-align: center;">
   <picture>
     <img src="https://raw.githubusercontent.com/emiche1108/LuminaScan/main/static/readme-images/logo.png" width="200" alt="LuminaScan Logo">
-  </picture>
-  
-  <br> 
+  </picture>  
+  <br>
 
-  <div style="text-align: center;">
-  <a href="README_ja.md">
-    <img src="https://img.shields.io/badge/Japanese-🇯🇵-red?style=for-the-badge&logo=google-translate">
-  </a>
-  <a href="README_en.md">
-    <img src="https://img.shields.io/badge/English-🇺🇸-blue?style=for-the-badge&logo=google-translate">
-  </a>
+  <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+    <a href="README_ja.md">
+      <img src="https://img.shields.io/badge/Japanese-🇯🇵-red?style=for-the-badge&logo=google-translate">
+    </a>
+    <a href="README_en.md">
+      <img src="https://img.shields.io/badge/English-🇺🇸-blue?style=for-the-badge&logo=google-translate">
+    </a>
+  </div>
 </div>
 
 
