@@ -2,12 +2,16 @@
   <picture>
     <img src="https://raw.githubusercontent.com/emiche1108/LuminaScan/main/static/readme-images/logo.png" width="200" alt="LuminaScan Logo"
   </picture>
+  
+  <a href="README_ja.md">
+    <img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-Japanese-red?style=for-the-badge&logo=google-translate">
+  </a>
+  <a href="README_en.md">
+    <img src="https://img.shields.io/badge/English-🇺🇸-blue?style=for-the-badge&logo=google-translate">
+  </a>
 </div>
 
 
-[🇯🇵 日本語](README_ja.md) | [🇺🇸 English](README_en.md)
-
----
 
 ### 目次
 - [💄アプリケーションのご説明](#app-description)
