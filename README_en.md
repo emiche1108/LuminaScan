@@ -201,7 +201,7 @@ LuminaScan/
 │   │        ├── ssdMobilenetv1
 │   │        ├── faceLandmark68Net
 │   │        ├── faceRecognitionNet
-│   │        └── その他のモデルファイル
+│   │        └── Other model files
 │
 │   ├── js/              
 │   │   ├── face-api.js      
