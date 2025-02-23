@@ -56,11 +56,13 @@ For those who want to make skincare easy, smart, and part of their daily routine
 While working in sales, I frequently made data-driven decisions, such as market analysis and customer demand forecasting.<br>
 Through this experience, I became fascinated by demand prediction and developed a desire to not just use data, <br>but to build analytical systems myself.<br>
 <br>
-However, independently developing and testing demand forecasting models seemed too complex.<br>
+However, I felt that the field of demand forecasting was too challenging to develop and test individually.<br>
 So, I looked for a more accessible way to apply data analysis to a familiar topic.<br>
-That’s when I came up with the idea of quantifying skin conditions using image analysis for objective evaluation, which led to the development of 『Lumina Scan』<br>
+That’s when I came up with the idea of quantifying skin conditions using image analysis for objective evaluation,<br>
+which led to the development of 『Lumina Scan』<br>
 <br>
-This personal project allows me to learn and apply image processing and data analysis hands-on strengthening my technical skills.<br>
+This personal project allows me to learn and apply image processing<br>
+and data analysis hands-on strengthening my technical skills.<br>
 It serves as both a learning experience and an opportunity to assess my potential as a programmer.<br>
 <br>
 
@@ -87,7 +89,7 @@ pip install flask opencv-python-headless pillow numpy
 python3 app.py
 ```
 #### 5. If successful...
-You will see Running on `http://127.0.0.1:5000/`. Open your browser and go to:
+You will see Running on `http://127.0.0.1:5000/` Open your browser and go to
 ```
 http://127.0.0.1:5000/
 ```
