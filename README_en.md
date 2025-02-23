@@ -94,7 +94,7 @@ http://127.0.0.1:5000/
 
 ---
 ---
-
+<br>
 
 
 ## 🛠️ Application Features<a id="app-features"></a>
@@ -113,7 +113,7 @@ http://127.0.0.1:5000/
 | Take a Photo Page | Camera Launch・Face Recognition|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="Photo"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="Face Recognition"> |
-|Show a caution message before launching the camera,<br> then activate it when the 'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
+|Show a caution message<br>before launching the camera,<br>then activate it when the 'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
 
 | Results Page | Explanation of 7 Items|
 | ---------------- | ---------------- |
@@ -124,9 +124,8 @@ http://127.0.0.1:5000/
 #### ▶ Sample Feature Videos
 | Sample Videos                         | Description               |
 |---------------------------------------|---------------------------|
-|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/takephoto.gif" width="300" height="200" alt="リアルタイム顔認証">|【顔認識の流れ】<br>face-api.jsの学習済みモデルを使用し、顔認識を行う。<br><br>⚫︎ssdMobilenetv1 → カメラ映像から顔の位置を特定<br>⚫︎faceLandmark68Net → 目・鼻・口・輪郭など68箇所の特徴点を検出<br>⚫︎faceRecognitionNet → 類似度スコアを算出、特定の値以上でカメラ撮影を許可<br>|
-|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/report.gif" width="300" height="200" alt="アニメーション＆アドバイス表示">|【肌採点の流れ】<br>画像解析技術を用い、肌状態を数値化。<br><br>⚫︎画像解析 → 明度・彩度・色のバランスを分析し、肌の特徴を抽出<br>⚫︎特徴評価 → シミ・シワ・くま・水分量などを画像処理で測定し、数値化<br>⚫︎スコア算出 → 各評価を統合し、100点満点で肌状態を採点<br>|
-
+|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/takephoto.gif" width="300" height="200" alt="Face Recognition">|【Face Recognition Flow】<br>Face recognition is performed using pre-trained models from face-api.js.<br><br>⚫︎ssdMobilenetv1 → Detects facial positions from the camera feed.<br>⚫︎faceLandmark68Net →  Identifies 68 facial landmarks (eyes, nose, mouth, contours).<br>⚫︎faceRecognitionNet → Calculates similarity scores; allows capturing if above a certain threshold.<br>|
+|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/report.gif" width="300" height="200" alt="Animation & Advice Display">|【Skin Scoring Flow】<br>Utilizing image analysis technology to quantify skin condition.<br><br>⚫︎Image Analysis → Analyzes brightness, saturation, and color balance to extract skin features.<br><br>⚫︎Feature Evaluation → Measures and quantifies factors like spots, wrinkles, dark circles, and moisture levels through image processing.<br>⚫︎Score Calculation → Integrates all evaluations and assigns a skin score out of 100.<br>|
 <br>
 
 
