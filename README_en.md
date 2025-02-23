@@ -32,7 +32,7 @@
 
 
 ## 💄 About the Application<a id="app-description"></a>
-LuminaScan is a skin analysis app that quantifies and visualizes skin conditions using image processing technology.
+LuminaScan is a skin analysis app that quantifies and visualizes skin conditions using image processing technology.<br>
 It analyzes facial images to assess factors such as moisture, oil balance, brightness, spots, wrinkles, texture, and dark circles.<br>
 Based on these results, it provides personalized skincare advice.<br>
 
@@ -54,13 +54,13 @@ For those who want to make skincare easy, smart, and part of their daily routine
 
 ## 💡 Motivation for Development<a id="writing-motivation"></a>
 While working in sales, I frequently made data-driven decisions, such as market analysis and customer demand forecasting.<br>
-Through this experience, I became fascinated by demand prediction and developed a desire to not just use data, but to build analytical systems myself.<br>
+Through this experience, I became fascinated by demand prediction and developed a desire to not just use data, <br>but to build analytical systems myself.<br>
 <br>
 However, independently developing and testing demand forecasting models seemed too complex.<br>
 So, I looked for a more accessible way to apply data analysis to a familiar topic.<br>
 That’s when I came up with the idea of quantifying skin conditions using image analysis for objective evaluation, which led to the development of 『Lumina Scan』<br>
 <br>
-This personal project allows me to learn and apply image processing and data analysis hands-on<br> strengthening my technical skills.<br>
+This personal project allows me to learn and apply image processing and data analysis hands-on strengthening my technical skills.<br>
 It serves as both a learning experience and an opportunity to assess my potential as a programmer.<br>
 <br>
 
@@ -92,7 +92,6 @@ You will see Running on `http://127.0.0.1:5000/`. Open your browser and go to:
 http://127.0.0.1:5000/
 ```
 
-<br>
 ---
 ---
 
@@ -104,17 +103,17 @@ http://127.0.0.1:5000/
 | Top Page | Service Description |
 | ---------------- | ---------------- |
 | [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" alt="Three diagnostic modes"> |
-| Implementing a service description. | Implemented start buttons for three diagnostic modes. |
+| Implemented a service description. | Implemented start buttons for three diagnostic modes. |
 
 | Skincare Questionnaire | Select Diagnostic Method |
 | ---------------- | ---------------- |
 | <img src="static/readme-images/skinQ-image.jpg" width="350" alt="Questionn"> | <img src="static/readme-images/choose-image.jpg" width="350" alt="Select"> |
-| Implemented a skin concern questionnaire feature.| **Image Upload or Camera Capture**<br>　Implemented two options. |
+| Implemented a skin concern questionnaire feature.| **Image Upload or Camera Capture**<br>Implemented two options. |
 
 | Take a Photo Page | Camera Launch・Face Recognition|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="Photo"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="Face Recognition"> |
-|Show a caution message before<br>launching the camera, then activate it when the 'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
+|Show a caution message before launching the camera,<br> then activate it when the 'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
 
 | Results Page | Explanation of 7 Items|
 | ---------------- | ---------------- |
