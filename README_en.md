@@ -115,12 +115,12 @@ http://127.0.0.1:5000/
 | Take a Photo Page | Camera Launch・Face Recognition|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="Photo"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="Face Recognition"> |
-|Show a caution message<br>before launching the camera,<br>then activate it when the 'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
+|Show a caution message　before launching<br>the camera,then activate it when the<br>'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
 
 | Results Page | Explanation of 7 Items|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/report-image1.jpg" width="350" alt="Chart"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="Detailed Results"> |
-|Implemented skin scoring to evaluate skin condition. <br>Visualized results using a radar chart based on 7 indicators.| Implemented a feature to display appropriate skincare advice.|
+|Implemented skin scoring to evaluate<br>skin condition. Visualized results<br>using a radar chart based on 7 indicators.| Implemented a feature to display appropriate skincare advice.|
 
 
 #### ▶ Sample Feature Videos
@@ -135,10 +135,10 @@ http://127.0.0.1:5000/
 ## 📈 制作を通じて向上したスキル<a id="gained-skills"></a>
 | Skill                        | Learning Content                   |
 |------------------------------|------------------------------------|
-|Web App Development            |Flask × OpenCV を活用した、画像処理 & Webアプリの実装       |
-|Data Visualization             |Chart.js を用いた動的なデータの可視化|
-|Front ↔ Back Integration       |JavaScript でのデータ取得・Chart.js への反映・Flaskとの連携　|
-|Version Control with GitHub　  |効率的なバージョン管理・README作成・リポジトリの整理力向上      |
+|Web App Development           |Implemented image processing & web app using Flask × OpenCV.  |
+|Data Visualization            |Dynamic data visualization using Chart.js.　|
+|Front ↔ Back Integration      |Data retrieval in JavaScript, integration with Chart.js, and interaction with Flask.|
+|Version Control with GitHub　  |Improved version control efficiency, README creation, and repository organization skills. |
 <br>
 
 I developed a habit of questioning, "Is this the right approach?" and<br>
