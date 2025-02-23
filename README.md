@@ -26,8 +26,8 @@
 - [🛠️アプリケーションの機能紹介](#app-features)
 - [📈制作を通じて向上したスキル](#gained-skills)
 - [💻使用技術](#tech-stack)
-- [画面遷移図](#screen-flow)
-- [ディレクトリー図](#directory-diagram)
+- [📊画面遷移図](#screen-flow)
+- [📂ディレクトリー図](#directory-diagram)
 <br>
 
 
@@ -173,12 +173,11 @@ http://127.0.0.1:5000
 <br>
 
 
-### 画面遷移図<a id="screen-flow"></a>
+### 📊画面遷移図<a id="screen-flow"></a>
 <img src="static/readme-images/UserFrow.png" width="650" alt="画面遷移図">
 
 
-
-### ディレクトリー図<a id="directory-diagram"></a>
+### 📂ディレクトリー図<a id="directory-diagram"></a>
 ```
 LuminaScan/
 ├── app.py             # Flaskアプリケーション（メイン処理）
