@@ -139,17 +139,20 @@ http://127.0.0.1:5000/
 |Version Control with GitHub　  |効率的なバージョン管理・README作成・リポジトリの整理力向上      |
 <br>
 
-「この方法で良いのか？」「このコードはどこと連動しているのか？」と考える習慣が身につきました。<br>
-試行錯誤を重ねる中で、要件定義の重要性を改めて実感するとともに、設計段階での見通しを立てる力が<br>向上したと感じています。<br>
+I developed a habit of questioning, "Is this the right approach?" and<br>
+"Which part of the code does this interact with?"<br>
+
+Through repeated trial and error, I reaffirmed the importance of requirement definition and improved my ability to anticipate issues during the design phase.<br>
 
 
-### 制作期間
-#### 2025年1月中旬〜2月中旬までの約30日間（README記入含む）<br>
+### Development Period
+#### Approximately 30 days.<br>
 
 
-### 今後の目標
-ローカル環境だけでなく、Heroku や AWS にデプロイし「誰でも気軽に使えるアプリ」 を目指します。<br>
-データベースを導入し、解析結果を蓄積・活用できる仕組み を構築したいと考えています。<br>
+### Next Steps
+I aim to deploy the application not only in a local environment but also on Heroku and AWS, <br>
+making it easily accessible to everyone.<br>
+I plan to integrate a database to store and utilize analysis results effectively.<br>
 <br>
 
 
@@ -170,23 +173,23 @@ http://127.0.0.1:5000/
 ### ディレクトリー図<a id="directory-diagram"></a>
 ```
 LuminaScan/
-├── app.py             # Flaskアプリケーション（メイン処理）
-├── process.py         # OpenCVを用いたオーバーレイ処理
-├── trimming.py        # トリミング・グレースケール処理
-├── skin_analysis.py   # 肌の解析（重要）
-├── advice.py          # アンケート結果処理
+├── app.py            
+├── process.py         
+├── trimming.py        
+├── skin_analysis.py   
+├── advice.py         
 
-├── templates/         # HTMLテンプレート（フロントエンド）
-│   ├── index.html         # トップページ
-│   ├── skinQ.html         # 肌悩みアンケート
-│   ├── choose.html        # 画像アップロード or 撮影の選択
-│   ├── upload_photo.html  # 画像アップロード
-│   ├── take_photo.html    # 撮影ページ
-│   ├── animation.html     # アニメーション
-│   ├── error.html         # エラーページ
-│   └── result.html        # 結果ページ
+├── templates/         
+│   ├── index.html        
+│   ├── skinQ.html         
+│   ├── choose.html        
+│   ├── upload_photo.html  
+│   ├── take_photo.html    
+│   ├── animation.html   
+│   ├── error.html        
+│   └── result.html        
 
-├── static/           # 静的ファイル（モデル・スクリプト・画像など）
+├── static/           
 │   ├── models/           
 │   │   └── weights/      # 学習済みモデルデータ（JSON形式）
 │   │        ├── ssdMobilenetv1
@@ -194,19 +197,19 @@ LuminaScan/
 │   │        ├── faceRecognitionNet
 │   │        └── その他のモデルファイル
 │
-│   ├── js/              # JavaScript（フロントエンドの動作）
-│   │   ├── face-api.js       # 顔認証API
-│   │   ├── face-api.min.js   # 顔認証API（ミニファイド版）
-│   │   ├── skinQ.js          # アンケートページのスクリプト
-│   │   ├── take-photo.js     # 撮影ページ（顔認識 99点以上で合格）
-│   │   ├── upload-photo.js   # アップロードページ（顔認識 90点以上で合格）
-│   │   ├── animation.js      # アニメーション処理
-│   │   ├── chart.js          # 結果ページのグラフ
-│   │   └── result.js         # 結果ページの処理
+│   ├── js/              
+│   │   ├── face-api.js      
+│   │   ├── face-api.min.js   
+│   │   ├── skinQ.js          
+│   │   ├── take-photo.js     # 顔認識 99点以上で合格
+│   │   ├── upload-photo.js   # 顔認識 90点以上で合格
+│   │   ├── animation.js     
+│   │   ├── chart.js          
+│   │   └── result.js         
 │
-│   ├── css/            # スタイルシート（デザイン関連）
-│   │   ├── animation.css     # アニメーション専用CSS
-│   │   └── style.css         # 全体のスタイル
+│   ├── css/            
+│   │   ├── animation.css    
+│   │   └── style.css         
 │
 │   ├── 01uploads/      # 元画像（撮影・アップロードされた画像）
 │   │   └── image1.jpg
@@ -220,7 +223,7 @@ LuminaScan/
 │   ├── 03final/        # オーバーレイ済みの画像
 │   │   └── image1.jpg
 │
-│   ├── fixed-images/   # 固定画像（ヘッダー・フッターなど）
+│   ├── fixed-images/   
 │   │   ├── header.jpeg
 │   │   └── footer.jpeg
 ```
