@@ -119,7 +119,7 @@ async function capturePhoto() {
             },
             body: requestData
         });
-        console.log("📩 Flask へのリクエスト送信完了！ステータス:", response.status);
+        console.log(" Flask へのリクエスト送信完了！ステータス:", response.status);
 
         // レスポンスが正常かチェック
         if (!response.ok) {

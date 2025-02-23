@@ -7,7 +7,7 @@ if (typeof MODEL_URL === "undefined") {
 
 // アップロードボタンの設定
 document.addEventListener("DOMContentLoaded", async () => {
-    console.log("📌 upload-photo.js 読み込み完了");
+    console.log(" upload-photo.js 読み込み完了");
 
     // モデルのロード
     await loadModels();
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     uploadButton.addEventListener('click', async () => {
-        console.log("　アップロードボタンがクリックされました");
+        console.log(" アップロードボタンがクリックされました");
 
         const fileInput = document.getElementById('file-upload');
         const file = fileInput.files[0];
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         } catch (error) {
             console.error(" 顔認識エラー:", error);
 
-            // **🔥 エラーページにリダイレクト**
+            // ** エラーページにリダイレクト**
             window.location.href = `/error?message=${encodeURIComponent(error)}`;
 
             // **ボタンを元に戻す**
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-// **✅ モデルのロードを関数化**
+// モデルのロードを関数化
 async function loadModels() {
     try {
         await Promise.all([
@@ -72,7 +72,7 @@ async function loadModels() {
 }
 
 
-// **✅ アップロード前に顔を認識する関数**
+// アップロード前に顔を認識する関数
 async function validateFaceBeforeUpload(file) {
     return new Promise((resolve, reject) => {
         const img = document.createElement("img");
@@ -106,7 +106,7 @@ async function validateFaceBeforeUpload(file) {
 }
 
 
-//  画像を Flask に送信する
+//  画像をFlaskに送信する
 async function uploadFile(file) {
     const uploadButton = document.getElementById('upload-button');
 
