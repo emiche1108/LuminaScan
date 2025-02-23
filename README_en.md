@@ -32,36 +32,36 @@
 
 
 ## 💄 About the Application<a id="app-description"></a>
-LuminaScan is a skin analysis application that uses image processing technology to quantify and visualize skin conditions.<br>
+LuminaScan is a skin analysis app that quantifies and visualizes skin conditions using image processing technology.
 It analyzes facial images to assess factors such as moisture, oil balance, brightness, spots, wrinkles, texture, and dark circles.<br>
-Based on these results, it provides appropriate skincare advice.<br>
+Based on these results, it provides personalized skincare advice.<br>
 
 Key Features
-- Image Analysis: Facial recognition and image processing technology for skin condition assessment
+- Image Analysis: Skin condition diagnosis using facial recognition and image processing technology<br>
 
-- Score Display: Quantification of 7 skin indicators and visualization via graphs
+- Score Display: Quantifies seven skin indicators and visualizes them in graphs<br>
 
-- Advice Provision: Skincare recommendations based on diagnostic results
+- Advice Provision: Provides skincare recommendations based on diagnosis results<br>
 <br>
 
 
 ## 🎯 Target Users<a id="target-user"></a>
-A skin diagnosis tool available for anyone regardless of gender or age.<br>
-Recommended for business professionals who value cleanliness, as well as individuals concerned about changes in their skin.<br>
-For those who want to integrate skincare into their daily lives more conveniently and smartly.
+A skin analysis tool for everyone, regardless of gender or age.<br>
+Perfect for business professionals who care about their appearance and anyone noticing changes in their skin.<br>
+For those who want to make skincare easy, smart, and part of their daily routine.<br>
 <br>
 
 
 ## 💡 Motivation for Development<a id="writing-motivation"></a>
-While working in sales, I frequently engaged in data-driven decision-making, such as market analysis and customer demand forecasting.<br>
-This experience deepened my fascination with demand prediction, and I gradually developed a desire to not just use data, but to build analytical systems myself.<br>
+While working in sales, I frequently made data-driven decisions, such as market analysis and customer demand forecasting.<br>
+Through this experience, I became fascinated by demand prediction and developed a desire to not just use data, but to build analytical systems myself.<br>
 <br>
-However, I found that developing and testing demand forecasting models independently was quite challenging.<br>
-So, I sought a more accessible way to apply data analysis to a familiar topic.<br>
-This led me to explore an approach that quantifies skin conditions through image analysis for objective evaluation, which became the foundation of 『Lumina Scan』<br>
+However, independently developing and testing demand forecasting models seemed too complex.<br>
+So, I looked for a more accessible way to apply data analysis to a familiar topic.<br>
+That’s when I came up with the idea of quantifying skin conditions using image analysis for objective evaluation, which led to the development of 『Lumina Scan』<br>
 <br>
-This personal project allows me to deepen my understanding by learning the fundamentals of image processing and data analysis while applying them hands-on. My goal is to develop my technical skills and assess my aptitude as a programmer.<br>
-<br>
+This personal project allows me to learn and apply image processing and data analysis hands-on<br> strengthening my technical skills.<br>
+It serves as both a learning experience and an opportunity to assess my potential as a programmer.<br>
 <br>
 
 
@@ -75,7 +75,7 @@ cd ~/Desktop/LuminaScan
 #### 2. Set up a virtual environment (venv)
 ```
 python -m venv venv
-source venv/bin/activate    # On Windows, use `venv\Scripts\activate`
+source venv/bin/activate    # If you're using Windows, run `venv\Scripts\activate`
 ```
 #### 3. Install required libraries
 ```
@@ -103,23 +103,23 @@ http://127.0.0.1:5000/
 
 | Top Page | Service Description |
 | ---------------- | ---------------- |
-| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" alt="3種メニュー"> |
-| サービス内容の説明文を実装。 | 3種類の診断メニューのスタートボタンを実装。 |
+| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" alt="Three diagnostic modes"> |
+| Implementing a service description. | Implemented start buttons for three diagnostic modes. |
 
-| 肌に関するアンケート | 診断方法の選択 |
+| Skincare Questionnaire | Select Diagnostic Method |
 | ---------------- | ---------------- |
-| <img src="static/readme-images/skinQ-image.jpg" width="350" alt="アンケート"> | <img src="static/readme-images/choose-image.jpg" width="350" alt="方法選択"> |
-| 肌悩みの聞き取り機能を実装。 | **画像アップロード or カメラ撮影**<br>2種類の選択肢を実装。 |
+| <img src="static/readme-images/skinQ-image.jpg" width="350" alt="Questionn"> | <img src="static/readme-images/choose-image.jpg" width="350" alt="Select"> |
+| Implemented a skin concern questionnaire feature.| **Image Upload or Camera Capture**<br>　Implemented two options. |
 
-| 写真撮影ページ | カメラ起動画面・顔認証 |
+| Take a Photo Page | Camera Launch・Face Recognition|
 | ---------------- | ---------------- |
-| <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="写真"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="写真"> |
-| カメラ起動前に注意事項を表示し、<br>撮影開始ボタンを押すとカメラが起動する<br>流れを実装。 | カメラ起動＋リアルタイムで顔認識システムを実装。<br>詳細はサンプル動画よりご覧下さい。 |
+| <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="Photo"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="Face Recognition"> |
+|Show a caution message before<br>launching the camera, then activate it when the 'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
 
-| 結果ページ | 7項目の説明|
+| Results Page | Explanation of 7 Items|
 | ---------------- | ---------------- |
-| <img src="static/readme-images/report-image1.jpg" width="350" alt="チャート図"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="詳細結果"> |
-| 肌状態を採点し、7つの指標をもとに<br>レーダーチャートで視覚化する機能を実装。| アンケート結果と組み合わせて<br>適切なスキンケアアドバイスを表示|
+| <img src="static/readme-images/report-image1.jpg" width="350" alt="Chart"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="Detailed Results"> |
+|Implemented skin scoring to evaluate skin condition. <br>Visualized results using a radar chart based on 7 indicators.| Implemented a feature to display appropriate skincare advice.|
 
 
 #### ▶ Sample Feature Videos
