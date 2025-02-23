@@ -117,7 +117,7 @@ http://127.0.0.1:5000/
 | Take a Photo Page | Camera Launch・Face Recognition|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="Photo"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="Face Recognition"> |
-|Show a caution message before launching<br>the camera,then activate it when the<br>'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
+|Implemented a feature to show a caution message<br>before launching the camera, then activate it<br>when the 'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
 
 | Results Page | Explanation of 7 Items|
 | ---------------- | ---------------- |
