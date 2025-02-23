@@ -93,6 +93,8 @@ You will see Running on `http://127.0.0.1:5000/` Open your browser and go to
 ```
 http://127.0.0.1:5000/
 ```
+<br>
+
 
 ---
 ---
@@ -115,24 +117,24 @@ http://127.0.0.1:5000/
 | Take a Photo Page | Camera Launch・Face Recognition|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="Photo"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="Face Recognition"> |
-|Show a caution message　before launching<br>the camera,then activate it when the<br>'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
+|Show a caution message before launching<br>the camera,then activate it when the<br>'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
 
 | Results Page | Explanation of 7 Items|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/report-image1.jpg" width="350" alt="Chart"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="Detailed Results"> |
-|Implemented skin scoring to evaluate<br>skin condition. Visualized results<br>using a radar chart based on 7 indicators.| Implemented a feature to display appropriate skincare advice.|
+|Implemented skin scoring to evaluate<br>skin condition. Visualized results<br>using a radar chart based on 7 indicators.| Implemented a feature to display<br>appropriate skincare advice.|
 
 
 #### ▶ Sample Feature Videos
 | Sample Videos                         | Description               |
 |---------------------------------------|---------------------------|
 |<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/takephoto.gif" width="300" height="200" alt="Face Recognition">|【Face Recognition Flow】<br>Face recognition is performed using pre-trained models from face-api.js.<br><br>⚫︎ssdMobilenetv1 → Detects facial positions from the camera feed.<br>⚫︎faceLandmark68Net →  Identifies 68 facial landmarks (eyes, nose, mouth, contours).<br>⚫︎faceRecognitionNet → Calculates similarity scores; allows capturing if above a certain threshold.<br>|
-|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/report.gif" width="300" height="200" alt="Animation & Advice Display">|【Skin Scoring Flow】<br>Utilizing image analysis technology to quantify skin condition.<br><br>⚫︎Image Analysis → Analyzes brightness, saturation, and color balance to extract skin features.<br><br>⚫︎Feature Evaluation → Measures and quantifies factors like spots, wrinkles, dark circles, and moisture levels through image processing.<br>⚫︎Score Calculation → Integrates all evaluations and assigns a skin score out of 100.<br>|
+|<img src="https://github.com/emiche1108/LuminaScan/raw/main/static/readme-images/report.gif" width="300" height="200" alt="Animation & Advice Display">|【Skin Scoring Flow】<br>Utilizing image analysis technology to quantify skin condition.<br><br>⚫︎Image Analysis → Analyzes brightness, saturation, and color balance to extract skin features.<br>⚫︎Feature Evaluation → Measures and quantifies factors like spots, wrinkles, dark circles, and moisture levels through image processing.<br>⚫︎Score Calculation → Integrates all evaluations and assigns a skin score out of 100.<br>|
 <br>
 
 
 
-## 📈 制作を通じて向上したスキル<a id="gained-skills"></a>
+## 📈 Skills Improved Through Development<a id="gained-skills"></a>
 | Skill                        | Learning Content                   |
 |------------------------------|------------------------------------|
 |Web App Development           |Implemented image processing & web app using Flask × OpenCV.  |
@@ -141,10 +143,12 @@ http://127.0.0.1:5000/
 |Version Control with GitHub　  |Improved version control efficiency, README creation, and repository organization skills. |
 <br>
 
-I developed a habit of questioning, "Is this the right approach?" and<br>
-"Which part of the code does this interact with?"<br>
+I developed a habit of questioning,<br>
+"Is this the right approach?" and "Which part of the code does this interact with?"<br>
 
-Through repeated trial and error, I reaffirmed the importance of requirement definition and improved my ability to anticipate issues during the design phase.<br>
+Through repeated trial and error, I reaffirmed the importance of requirement definition<br> 
+and improved my ability to anticipate issues<br>
+during the design phase.<br>
 
 
 ### Development Period
@@ -163,16 +167,16 @@ I plan to integrate a database to store and utilize analysis results effectively
 |--------------|-----------------------------|
 | Front-end    | HTML, CSS, JavaScript(Chart.js)    |
 | Back-end     | python(Flask・OpenCV)         　   |
-| Development Tools    | Visual Studio Code,GitHub, venv   |
+| Development Tools  | Visual Studio Code,GitHub, venv   |
 <br>
 
 
 ### Screen Flow<a id="screen-flow"></a>
-<img src="static/readme-images/UserFrow.png" width="650" alt="画面遷移図">
+<img src="static/readme-images/UserFrow.png" width="650" alt="screen-flow">
 
 
 
-### ディレクトリー図<a id="directory-diagram"></a>
+### Directory Diagram<a id="directory-diagram"></a>
 ```
 LuminaScan/
 ├── app.py            
@@ -193,7 +197,7 @@ LuminaScan/
 
 ├── static/           
 │   ├── models/           
-│   │   └── weights/      # 学習済みモデルデータ（JSON形式）
+│   │   └── weights/      # Pre-trained Model Data (JSON Format)
 │   │        ├── ssdMobilenetv1
 │   │        ├── faceLandmark68Net
 │   │        ├── faceRecognitionNet
@@ -203,8 +207,8 @@ LuminaScan/
 │   │   ├── face-api.js      
 │   │   ├── face-api.min.js   
 │   │   ├── skinQ.js          
-│   │   ├── take-photo.js     # 顔認識 99点以上で合格
-│   │   ├── upload-photo.js   # 顔認識 90点以上で合格
+│   │   ├── take-photo.js     # Face Recognition: Pass with a Score of 99 or Higher
+│   │   ├── upload-photo.js   # Face Recognition: Pass with a Score of 90 or Higher
 │   │   ├── animation.js     
 │   │   ├── chart.js          
 │   │   └── result.js         
@@ -213,16 +217,16 @@ LuminaScan/
 │   │   ├── animation.css    
 │   │   └── style.css         
 │
-│   ├── 01uploads/      # 元画像（撮影・アップロードされた画像）
+│   ├── 01uploads/     
 │   │   └── image1.jpg
 │
-│   ├── 02trimmed/      # トリミング後の画像（顔部分のみ）
+│   ├── 02trimmed/      
 │   │   └── image1.jpg
 
-│   ├── 03gray/         # グレースケール後の画像
+│   ├── 03gray/         
 │   │   └── image1.jpg
 │
-│   ├── 03final/        # オーバーレイ済みの画像
+│   ├── 03final/        
 │   │   └── image1.jpg
 │
 │   ├── fixed-images/   
