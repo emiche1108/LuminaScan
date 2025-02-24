@@ -36,11 +36,6 @@ def extract_face(image_path):
     face_cascade = cv2.CascadeClassifier(face_cascade_path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    # **デバッグ用: グレースケール画像を保存**
-    debug_gray_path = "debug_gray_image.png"
-    cv2.imwrite(debug_gray_path, gray)
-    print(f" `debug_gray_image.png` にグレースケール画像を保存しました。顔が適切に映っているか確認してください。")
-
     # **顔の検出**
     print("顔検出を実行中...")
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(100, 100))
@@ -52,12 +47,12 @@ def extract_face(image_path):
     # **最も大きな顔領域のみを選択**
     faces = sorted(faces, key=lambda x: x[2] * x[3], reverse=True)  # 面積順でソート
     x, y, w, h = faces[0]  # 一番大きな顔だけ取得
-    print(f" 顔検出成功　座標: x={x}, y={y}, w={w}, h={h}")
+    print(f" 顔検出成功 座標: x={x}, y={y}, w={w}, h={h}")
 
 
     # **誤検出防止（小さすぎる顔は無視）**
     if w < 100 or h < 100:
-        print("　[ERROR] 検出された顔が小さすぎます。誤検出の可能性があります。")
+        print(" [ERROR] 検出された顔が小さすぎます。誤検出の可能性があります。")
         return None
 
     # **顔領域を切り抜き**
