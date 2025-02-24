@@ -294,14 +294,11 @@ def analyze():
     file.save(image_path)
 
     # `analyze_skin()` を呼び出す
-    results = analyze_skin(image_path)
+    #results = analyze_skin(image_path)
 
     # 解析後の画像を保存
     #processed_image_path = os.path.join(PROCESSED_FOLDER, file.filename)
     #cv2.imwrite(processed_image_path, cv2.imread(image_path))
-
-    # フロントエンド用のデータとして URL を追加
-    #results["processed_image"] = f"/{processed_image_path}"
 
     return jsonify(results)
 
