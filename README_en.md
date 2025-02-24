@@ -117,12 +117,12 @@ http://127.0.0.1:5000/
 | Take a Photo Page | Camera Launch・Face Recognition|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/takephoto-image1.jpg" width="350" alt="Photo"> | <img src="static/readme-images/takephoto-image2.jpg" width="350" alt="Face Recognition"> |
-|Implemented a feature to display an explanation<br>before launching the camera.<br>The camera activates when the 'Start Shooting' button is pressed.|Implemented a real-time face recognition system. |
+|Implemented a flow to display a caution message<br>before camera activation.|Implemented a real-time face recognition system. |
 
 | Results Page | Explanation of 7 Items|
 | ---------------- | ---------------- |
 | <img src="static/readme-images/report-image1.jpg" width="350" alt="Chart"> | <img src="static/readme-images/report-image2.jpg" width="350" alt="Detailed Results"> |
-|Implemented skin scoring to evaluate<br>skin condition. Visualized results<br>using a radar chart based on 7 indicators.| Implemented a feature to display<br>appropriate skincare advice.|
+|Implemented a feature to score skin conditions<br>and visualize them using a radar chart.| Implemented a feature to display<br>appropriate skincare advice.|
 
 
 #### ▶ Sample Feature Videos
