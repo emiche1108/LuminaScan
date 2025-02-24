@@ -112,7 +112,7 @@ http://127.0.0.1:5000/
 | Skincare Questionnaire | Select Diagnostic Method |
 | ---------------- | ---------------- |
 | <img src="static/readme-images/skinQ-image.jpg" width="350" alt="Questionn"> | <img src="static/readme-images/choose-image.jpg" width="350" alt="Select"> |
-| Implemented a skin concern questionnaire feature.| **Image Upload or Camera Capture**<br>Implemented two options. |
+| Implemented a skin concern<br>questionnaire feature.| **Image Upload or Camera Capture**<br>Implemented two options. |
 
 | Take a Photo Page | Camera Launch・Face Recognition|
 | ---------------- | ---------------- |
