@@ -15,7 +15,7 @@
 </div>
 
 
-# Lumina Scan - 
+# Lumina Scan - デジタル解析で肌を知るアプリケーション
 
 
 ### 目次
