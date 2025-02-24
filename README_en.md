@@ -106,7 +106,7 @@ http://127.0.0.1:5000/
 
 | Top Page | Service Description |
 | ---------------- | ---------------- |
-| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" alt="Three diagnostic modes"> |
+| <img src="static/readme-images/index-image1.jpg" width="350" alt="Top page">| <img src="static/readme-images/index-image2.jpg" width="350" alt="Three diagnostic modes"> |
 | Implemented a service description. | Implemented start buttons for three diagnostic modes. |
 
 | Skincare Questionnaire | Select Diagnostic Method |
