@@ -113,7 +113,7 @@ http://127.0.0.1:5000
 
 | トップページ | サービス内容 |
 | ---------------- | ---------------- |
-| [トップページ] | <img src="static/readme-images/index-image2.jpg" width="350" alt="3種メニュー"> |
+| <img src="static/readme-images/index-image1.jpg" width="350" alt="トップページ">| <img src="static/readme-images/index-image2.jpg" width="350" alt="3種メニュー"> |
 | サービス内容の説明文を実装。 | 3種類の診断メニューのスタートボタンを実装。 |
 
 | 肌に関するアンケート | 診断方法の選択 |
