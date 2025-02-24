@@ -15,7 +15,7 @@
 </div>
 
 
-# Lumina Scan - 
+# Lumina Scan - Discover Your Skin with Digital Analysis
 
 
 ### Table of Contents
